@@ -12,6 +12,10 @@
 		18493D9E1FC2D1EB009287C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18493D9D1FC2D1EB009287C6 /* Assets.xcassets */; };
 		18493DA11FC2D1EB009287C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18493D9F1FC2D1EB009287C6 /* Main.storyboard */; };
 		18493DAD1FC2D1EB009287C6 /* Monte_CarloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18493DAC1FC2D1EB009287C6 /* Monte_CarloTests.swift */; };
+		187622D61FC42814006E3DE0 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187622D51FC42814006E3DE0 /* Canvas.swift */; };
+		187622D81FC42E4B006E3DE0 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187622D71FC42E4B006E3DE0 /* Mesh.swift */; };
+		188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C5FED1FCAB575006376A6 /* ColorPicker.swift */; };
+		188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,10 @@
 		18493DA81FC2D1EB009287C6 /* Monte CarloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Monte CarloTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18493DAC1FC2D1EB009287C6 /* Monte_CarloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monte_CarloTests.swift; sourceTree = "<group>"; };
 		18493DAE1FC2D1EB009287C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		187622D51FC42814006E3DE0 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		187622D71FC42E4B006E3DE0 /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
+		188C5FED1FCAB575006376A6 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,10 @@
 				18493D9F1FC2D1EB009287C6 /* Main.storyboard */,
 				18493DA21FC2D1EB009287C6 /* Info.plist */,
 				18493DA31FC2D1EB009287C6 /* Monte_Carlo.entitlements */,
+				187622D51FC42814006E3DE0 /* Canvas.swift */,
+				187622D71FC42E4B006E3DE0 /* Mesh.swift */,
+				188C5FED1FCAB575006376A6 /* ColorPicker.swift */,
+				188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */,
 			);
 			path = "Monte Carlo";
 			sourceTree = "<group>";
@@ -199,6 +211,10 @@
 			files = (
 				18493D9C1FC2D1EB009287C6 /* ViewController.swift in Sources */,
 				18493D9A1FC2D1EB009287C6 /* AppDelegate.swift in Sources */,
+				188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */,
+				187622D81FC42E4B006E3DE0 /* Mesh.swift in Sources */,
+				188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */,
+				187622D61FC42814006E3DE0 /* Canvas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,9 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    
+    @IBOutlet var canvas: NSView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
