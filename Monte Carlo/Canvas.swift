@@ -9,13 +9,17 @@
 import Foundation
 import AppKit
 
-class Canvas: NSView {
+class Canvas: NSView, UIUpdateDelegate {
     
     var mesh: Mesh?
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.initView()
+    }
+    
+    func updateUI() {
+        self.draw(self.frame)
     }
     
     func initView() {

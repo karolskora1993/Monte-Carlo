@@ -12,7 +12,7 @@ class Mesh {
     
     var points = [[MCPoint]]()
     var size:(height: Int, width: Int)
-    var isRunning = false
+    var started = false
     var nextID = 1
     
     init(withSize size: (height: Int, width: Int)) {
@@ -20,6 +20,14 @@ class Mesh {
         self.initPoints()
     }
     
+    func isCompleted() -> Bool {
+        //TODO: Implementation
+    }
+    
+    func isRunning() -> Bool {
+        //TODO: Implementation
+
+    }
     private func initPoints() {
         for i in 0..<self.size.height {
             var row = [MCPoint]()

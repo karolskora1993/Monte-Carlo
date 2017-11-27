@@ -14,6 +14,7 @@
 		18493DAD1FC2D1EB009287C6 /* Monte_CarloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18493DAC1FC2D1EB009287C6 /* Monte_CarloTests.swift */; };
 		187622D61FC42814006E3DE0 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187622D51FC42814006E3DE0 /* Canvas.swift */; };
 		187622D81FC42E4B006E3DE0 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187622D71FC42E4B006E3DE0 /* Mesh.swift */; };
+		1887C6281FCC30E200680301 /* MyThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887C6271FCC30E200680301 /* MyThread.swift */; };
 		188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C5FED1FCAB575006376A6 /* ColorPicker.swift */; };
 		188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		18493DAE1FC2D1EB009287C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		187622D51FC42814006E3DE0 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		187622D71FC42E4B006E3DE0 /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
+		1887C6271FCC30E200680301 /* MyThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyThread.swift; sourceTree = "<group>"; };
 		188C5FED1FCAB575006376A6 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				187622D71FC42E4B006E3DE0 /* Mesh.swift */,
 				188C5FED1FCAB575006376A6 /* ColorPicker.swift */,
 				188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */,
+				1887C6271FCC30E200680301 /* MyThread.swift */,
 			);
 			path = "Monte Carlo";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */,
 				187622D81FC42E4B006E3DE0 /* Mesh.swift in Sources */,
 				188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */,
+				1887C6281FCC30E200680301 /* MyThread.swift in Sources */,
 				187622D61FC42814006E3DE0 /* Canvas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
