@@ -30,6 +30,10 @@ class Mesh {
         }
     }
     
+    func next() {
+        //TODO: next func implementation
+    }
+    
     private func getNeighboorhood(i:Int, j:Int) -> [[MCPoint]] {
         var temp = [[MCPoint]]()
         let point = MCPoint(id: 0, phase: 0, x: 0, y: 0)

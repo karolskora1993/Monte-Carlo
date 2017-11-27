@@ -40,9 +40,12 @@ class Canvas: NSView {
                 for j in 0..<mesh.size.width {
                     let id = mesh.points[i][j].id
                     let color = ColorPicker.getColor(withID: id)
-                    let rect = NSBezierPath(rect: NSRect(x: CGFloat(j) * rectSize , y: CGFLoat(i) * rectSize, width: rectSize, height: rectSize))
+                    let rect = NSRect(x: CGFloat(j) * rectSize , y: CGFloat(i) * rectSize, width: rectSize, height: rectSize)
+                    color.set()
+                    context?.fill(rect)
                 }
             }
+            context?.restoreGState()
         }
     }
 }
