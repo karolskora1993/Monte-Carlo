@@ -10,7 +10,8 @@ import Foundation
 
 
 protocol UIUpdateDelegate: class {
-    func updateUI()
+    func updateCanvas()
+    func updateStarted()
 }
 
 class MCThread: Thread {
@@ -21,14 +22,22 @@ class MCThread: Thread {
     
     override func main() {
         if let mesh = self.mesh, mesh.points.count > 0 {
-            for _ in 0..<numberOfSteps {
+            for i in 0..<numberOfSteps {
+                if !mesh.started {
+                    break
+                }
                 mesh.next()
                 if let delegate = self.delegate {
                 DispatchQueue.main.async {
-                        delegate.updateUI()
+                        delegate.updateCanvas()
                     }
                 }
+                print("next: \(i)")
+                Thread.sleep(forTimeInterval: 0.1)
             }
+        }
+        DispatchQueue.main.async {
+            self.delegate?.updateStarted()
         }
     }
 }

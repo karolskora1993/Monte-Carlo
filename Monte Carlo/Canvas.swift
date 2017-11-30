@@ -9,7 +9,7 @@
 import Foundation
 import AppKit
 
-class Canvas: NSView, UIUpdateDelegate {
+class Canvas: NSView {
     
     var mesh: Mesh?
     

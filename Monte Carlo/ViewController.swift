@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, UIUpdateDelegate {
     
     
     @IBOutlet weak var canvas: Canvas!
@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var heightTextField: NSTextField!
     @IBOutlet weak var widthTextField: NSTextField!
     @IBOutlet weak var numberOfIDsTextField: NSTextField!
+    @IBOutlet weak var startButton: NSButton!
     var mesh:Mesh?
 
     //MARK: VC Lifecycle methods
@@ -33,18 +34,53 @@ class ViewController: NSViewController {
     @IBAction func generateMeshButtonPressed(_ sender: Any) {
         let width = self.widthTextField.integerValue
         let height = self.heightTextField.integerValue
-        let maxID = self.numberOfIDsTextField.integerValue
-        self.mesh = Mesh(withSize: (height: height, width: width), maxID: maxID )
+        self.mesh = Mesh(withSize: (height: height, width: width))
         self.canvas.mesh = self.mesh
-        self.canvas.updateUI()
+        self.updateCanvas()
     }
     
-    @IBAction func startButtonPressed(_ sender: NSButton) {
+    @IBAction func generateGrainsButtonPressed(_ sender: Any) {
+        let maxID = self.numberOfIDsTextField.integerValue
+        if let mesh = self.mesh {
+            mesh.generateRandom(grainsCount: maxID)
+            self.updateCanvas()
+        }
+    }
+    
+    @IBAction func fillWithGrainsButtonPressed(_ sender: Any) {
+        let maxID = self.numberOfIDsTextField.integerValue
+        if let mesh = self.mesh {
+            mesh.fillRandomly(withMaxID: maxID)
+            self.updateCanvas()
+        }
+    }
+    
+    @IBAction func startCAButtonPressed(_ sender: Any) {
+        
+    }
+    @IBAction func startMCButtonPressed(_ sender: NSButton) {
         if let mesh = self.mesh {
             let thread = MCThread()
             thread.numberOfSteps = self.numberOfStepsTextField.integerValue
+            mesh.changeStarted()
+            self.updateStarted()
             thread.mesh = mesh
+            thread.delegate = self
             thread.start()
+        }
+    }
+    
+    func updateCanvas() {
+        self.canvas.updateUI()
+    }
+    
+    func updateStarted() {
+        if let mesh = self.mesh {
+            if mesh.started {
+                self.startButton.title = "STOP"
+            } else {
+                self.startButton.title = "START"
+            }
         }
     }
     
