@@ -55,8 +55,28 @@ class ViewController: NSViewController, UIUpdateDelegate {
         }
     }
     
+    @IBAction func clearMeshButtonPressed(_ sender: Any) {
+        if let mesh = self.mesh {
+            mesh.clearPoints()
+            self.updateCanvas()
+        }
+    }
+    
     @IBAction func startCAButtonPressed(_ sender: Any) {
-        
+        if let mesh = self.mesh {
+            DispatchQueue.global().async {
+                while !mesh.isCompleted() && mesh.started {
+                    mesh.nextCA()
+                    DispatchQueue.main.async { [weak self] in
+                        guard let strongSelf = self else { return }
+                        strongSelf.updateCanvas()
+                    }
+                }
+            }
+            self.mesh?.changeStarted()
+            self.updateCanvas()
+            self.updateStarted()
+        }
     }
     @IBAction func startMCButtonPressed(_ sender: NSButton) {
         if let mesh = self.mesh {

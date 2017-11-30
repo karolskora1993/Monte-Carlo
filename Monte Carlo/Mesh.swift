@@ -74,9 +74,9 @@ class Mesh {
         }
     }
     
-    private func clearPoints() {
-        self.points = [[MCPoint]]()
-        self.chosenPoints = [[Bool]]()
+    func clearPoints() {
+        self.initPoints()
+        self.initChosenPoints()
     }
     
     private func initChosenPoints() {
@@ -131,15 +131,33 @@ class Mesh {
     }
     
     func nextCA() {
-        var nextStep = NSArray(array: self.points, copyItems: true)
+        var nextStep = self.points
         for i in 0..<self.size.height {
             for j in 0..<self.size.width {
                 if self.points[i][j].id == 0 {
                     let neighbours = self.getNeighbourhood(i: i, j: j)
-                    
+                    var ids = [Int:Int]()
+                    for row in neighbours {
+                        for el in row {
+                            if el.id != 0 {
+                                if let count = ids[el.id] {
+                                    ids[el.id] = count + 1
+                                }else {
+                                    ids[el.id] = 1
+                                }
+                            }
+                        }
+                    }
+                    if !ids.isEmpty {
+                        let maxElement = ids.max{ a, b in a.value < b.value}
+                        if let maxID = maxElement?.1 {
+                            nextStep[i][j].id = maxID
+                        }
+                    }
                 }
             }
         }
+        self.points = nextStep
     }
     
     func next() {
