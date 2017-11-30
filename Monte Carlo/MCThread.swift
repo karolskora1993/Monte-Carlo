@@ -13,7 +13,7 @@ protocol UIUpdateDelegate: class {
     func updateUI()
 }
 
-class MyThread: Thread {
+class MCThread: Thread {
     
     weak var delegate: UIUpdateDelegate?
     var mesh: Mesh?

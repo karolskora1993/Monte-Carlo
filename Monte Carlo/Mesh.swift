@@ -14,10 +14,14 @@ class Mesh {
     var size:(height: Int, width: Int)
     var started = false
     var nextID = 1
+    var chosenPoints = [[Bool]]()
+    var maxID:Int
     
     init(withSize size: (height: Int, width: Int), maxID: Int) {
         self.size = size
+        self.maxID = maxID
         self.initPoints(maxID: maxID)
+        self.initChosenPoints()
     }
     
     func isCompleted() -> Bool {
@@ -41,15 +45,86 @@ class Mesh {
                 let randomID = Int(arc4random_uniform(UInt32(maxID)))
                 row.append(MCPoint(id: randomID, phase: 0, x: i, y: j))
             }
-            points.append(row)
+            self.points.append(row)
         }
     }
     
-    func next() {
-        //TODO: next func implementation
+    private func clearPoints() {
+        self.points = [[MCPoint]]()
+        self.chosenPoints = [[Bool]]()
     }
     
-    private func getNeighboorhood(i:Int, j:Int) -> [[MCPoint]] {
+    private func initChosenPoints() {
+        for _ in 0..<self.size.height {
+            var row = [Bool]()
+            for _ in 0..<self.size.width {
+                row.append(false)
+            }
+            self.chosenPoints.append(row)
+        }
+    }
+    
+    private func clearChosenPoints() {
+        for i in 0..<self.size.height {
+            for j in 0..<self.size.width {
+                self.chosenPoints[i][j] = false
+            }
+        }
+    }
+    
+    private func checkForNotDrownElements() -> Bool {
+        for row in self.chosenPoints {
+            for element in row {
+                if !element {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    private func drawNewID(forNeighbours ids:[[MCPoint]]) ->Int {
+        var x = Int(arc4random_uniform(UInt32(ids.count)))
+        var y = Int(arc4random_uniform(UInt32(ids[0].count)))
+        while x == y && ids[x][y].id == 0 {
+            x = Int(arc4random_uniform(UInt32(ids.count)))
+            y = Int(arc4random_uniform(UInt32(ids[0].count)))
+        }
+        return ids[x][y].id
+    }
+    
+    private func calculateEnergy(forChosenID chosenID:Int, neighbourhood:[[MCPoint]]) -> Int {
+        var energy = 0
+        for row in neighbourhood {
+            for element in row {
+                if element.id != chosenID && element.id != 0 {
+                    energy += 1
+                }
+            }
+        }
+        return energy
+    }
+    
+    func next() {
+        self.clearChosenPoints()
+        while self.checkForNotDrownElements() {
+            var x = Int(arc4random_uniform(UInt32(self.size.height)))
+            var y = Int(arc4random_uniform(UInt32(self.size.width)))
+            while self.chosenPoints[x][y] {
+                x = Int(arc4random_uniform(UInt32(self.size.height)))
+                y = Int(arc4random_uniform(UInt32(self.size.width)))
+            }
+            let chosenID = self.points[x][y].id
+            let neighbours = self.getNeighbourhood(i: x, j: y)
+            let newID = self.drawNewID(forNeighbours: neighbours)
+            if self.calculateEnergy(forChosenID: chosenID, neighbourhood: neighbours) > self.calculateEnergy(forChosenID: newID, neighbourhood: neighbours) {
+                self.points[x][y].id = newID
+            }
+            self.chosenPoints[x][y] = true
+        }
+    }
+    
+    private func getNeighbourhood(i:Int, j:Int) -> [[MCPoint]] {
         var temp = [[MCPoint]]()
         let point = MCPoint(id: 0, phase: 0, x: 0, y: 0)
         for _ in 0..<3 {

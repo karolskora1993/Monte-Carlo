@@ -41,7 +41,7 @@ class ViewController: NSViewController {
     
     @IBAction func startButtonPressed(_ sender: NSButton) {
         if let mesh = self.mesh {
-            let thread = MyThread()
+            let thread = MCThread()
             thread.numberOfSteps = self.numberOfStepsTextField.integerValue
             thread.mesh = mesh
             thread.start()
