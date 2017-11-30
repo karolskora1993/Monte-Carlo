@@ -17,13 +17,16 @@ class MyThread: Thread {
     
     weak var delegate: UIUpdateDelegate?
     var mesh: Mesh?
+    var numberOfSteps = 100
     
-    func main() {
-        if let mesh = self.mesh, mesh.points.count >0 {
-            while mesh.isRunning() && !mesh.isCompleted() {
+    override func main() {
+        if let mesh = self.mesh, mesh.points.count > 0 {
+            for _ in 0..<numberOfSteps {
                 mesh.next()
                 if let delegate = self.delegate {
-                    delegate.updateUI()
+                DispatchQueue.main.async {
+                        delegate.updateUI()
+                    }
                 }
             }
         }

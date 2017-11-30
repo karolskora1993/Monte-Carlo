@@ -48,9 +48,9 @@ class ColorPicker {
         g = g < 0 ? 0 : g
         b = b < 0 ? 0 : b
         
-        let float_r = CGFloat(r / 255)
-        let float_g = CGFloat(g / 255)
-        let float_b = CGFloat(b / 255)
+        let float_r = CGFloat(r) / 255
+        let float_g = CGFloat(g) / 255
+        let float_b = CGFloat(b) / 255
 
 
         return NSColor(red: float_r, green: float_g, blue: float_b, alpha: alpha)

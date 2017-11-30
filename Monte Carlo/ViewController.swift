@@ -10,12 +10,17 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    @IBOutlet var canvas: NSView!
     
+    @IBOutlet weak var canvas: Canvas!
+    @IBOutlet weak var numberOfStepsTextField: NSTextField!
+    @IBOutlet weak var heightTextField: NSTextField!
+    @IBOutlet weak var widthTextField: NSTextField!
+    @IBOutlet weak var numberOfIDsTextField: NSTextField!
+    var mesh:Mesh?
+
+    //MARK: VC Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
@@ -24,6 +29,24 @@ class ViewController: NSViewController {
         }
     }
 
-
+    //MARK: Actions
+    @IBAction func generateMeshButtonPressed(_ sender: Any) {
+        let width = self.widthTextField.integerValue
+        let height = self.heightTextField.integerValue
+        let maxID = self.numberOfIDsTextField.integerValue
+        self.mesh = Mesh(withSize: (height: height, width: width), maxID: maxID )
+        self.canvas.mesh = self.mesh
+        self.canvas.updateUI()
+    }
+    
+    @IBAction func startButtonPressed(_ sender: NSButton) {
+        if let mesh = self.mesh {
+            let thread = MyThread()
+            thread.numberOfSteps = self.numberOfStepsTextField.integerValue
+            thread.mesh = mesh
+            thread.start()
+        }
+    }
+    
 }
 

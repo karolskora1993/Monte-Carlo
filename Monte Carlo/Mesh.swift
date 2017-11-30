@@ -15,24 +15,31 @@ class Mesh {
     var started = false
     var nextID = 1
     
-    init(withSize size: (height: Int, width: Int)) {
+    init(withSize size: (height: Int, width: Int), maxID: Int) {
         self.size = size
-        self.initPoints()
+        self.initPoints(maxID: maxID)
     }
     
     func isCompleted() -> Bool {
-        //TODO: Implementation
+        for row in self.points {
+            for el in row {
+                if el.id == 0 {
+                    return false
+                }
+            }
+        }
+        if self.started {
+            self.started = false
+        }
+        return true
     }
     
-    func isRunning() -> Bool {
-        //TODO: Implementation
-
-    }
-    private func initPoints() {
+    private func initPoints(maxID:Int) {
         for i in 0..<self.size.height {
             var row = [MCPoint]()
             for j in 0..<self.size.width {
-                row.append(MCPoint(id: 0, phase: 0, x: i, y: j))
+                let randomID = Int(arc4random_uniform(UInt32(maxID)))
+                row.append(MCPoint(id: randomID, phase: 0, x: i, y: j))
             }
             points.append(row)
         }

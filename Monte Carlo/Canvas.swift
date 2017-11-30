@@ -19,7 +19,7 @@ class Canvas: NSView, UIUpdateDelegate {
     }
     
     func updateUI() {
-        self.draw(self.frame)
+        self.setNeedsDisplay(self.frame)
     }
     
     func initView() {
@@ -45,11 +45,10 @@ class Canvas: NSView, UIUpdateDelegate {
                     let id = mesh.points[i][j].id
                     let color = ColorPicker.getColor(withID: id)
                     let rect = NSRect(x: CGFloat(j) * rectSize , y: CGFloat(i) * rectSize, width: rectSize, height: rectSize)
-                    color.set()
+                    color.setFill()
                     context?.fill(rect)
                 }
             }
-            context?.restoreGState()
         }
     }
 }
