@@ -17,11 +17,17 @@ class ViewController: NSViewController, UIUpdateDelegate {
     @IBOutlet weak var widthTextField: NSTextField!
     @IBOutlet weak var numberOfIDsTextField: NSTextField!
     @IBOutlet weak var startButton: NSButton!
+    @IBOutlet weak var startCAButton: NSButton!
+    
+    @IBOutlet weak var selectIdsTextField: NSTextField!
+    
     var mesh:Mesh?
 
+    
     //MARK: VC Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.generateMesh()
     }
 
     override var representedObject: Any? {
@@ -29,14 +35,18 @@ class ViewController: NSViewController, UIUpdateDelegate {
         // Update the view, if already loaded.
         }
     }
-
-    //MARK: Actions
-    @IBAction func generateMeshButtonPressed(_ sender: Any) {
+    
+    private func generateMesh() {
         let width = self.widthTextField.integerValue
         let height = self.heightTextField.integerValue
         self.mesh = Mesh(withSize: (height: height, width: width))
         self.canvas.mesh = self.mesh
         self.updateCanvas()
+    }
+
+    //MARK: Actions
+    @IBAction func generateMeshButtonPressed(_ sender: Any) {
+        self.generateMesh()
     }
     
     @IBAction func generateGrainsButtonPressed(_ sender: Any) {
@@ -64,31 +74,46 @@ class ViewController: NSViewController, UIUpdateDelegate {
     
     @IBAction func startCAButtonPressed(_ sender: Any) {
         if let mesh = self.mesh {
+            mesh.setCAMethod()
+            mesh.changeStarted()
+            self.updateStarted()
             DispatchQueue.global().async {
                 while !mesh.isCompleted() && mesh.started {
-                    mesh.nextCA()
+                    mesh.next()
                     DispatchQueue.main.async { [weak self] in
                         guard let strongSelf = self else { return }
                         strongSelf.updateCanvas()
                     }
                 }
+                DispatchQueue.main.async {
+                    self.updateCanvas()
+                    self.updateStarted()
+                }
             }
-            self.mesh?.changeStarted()
-            self.updateCanvas()
-            self.updateStarted()
+
         }
     }
     @IBAction func startMCButtonPressed(_ sender: NSButton) {
         if let mesh = self.mesh {
-            let thread = MCThread()
-            thread.numberOfSteps = self.numberOfStepsTextField.integerValue
+            mesh.setMCMethod()
             mesh.changeStarted()
             self.updateStarted()
+            let thread = MCThread()
+            thread.numberOfSteps = self.numberOfStepsTextField.integerValue
             thread.mesh = mesh
             thread.delegate = self
             thread.start()
         }
     }
+    
+    @IBAction func selectButtonPressed(_ sender: Any) {
+        if let mesh = self.mesh, mesh.isCompleted() {
+            mesh.select(numberOfGrains: self.selectIdsTextField.integerValue)
+            self.updateCanvas()
+        }
+    }
+    
+    //MARK: Delegate methods
     
     func updateCanvas() {
         self.canvas.updateUI()
@@ -97,10 +122,12 @@ class ViewController: NSViewController, UIUpdateDelegate {
     func updateStarted() {
         if let mesh = self.mesh {
             if mesh.started {
-                self.startButton.title = "STOP"
+                self.startButton.title = "STOP MC"
+                self.startCAButton.title = "STOP CA"
+
             } else {
-                self.startButton.title = "START"
-            }
+                self.startButton.title = "START MC"
+                self.startCAButton.title = "START CA"            }
         }
     }
     

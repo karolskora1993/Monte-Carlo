@@ -18,10 +18,10 @@ class ColorPicker {
             return NSColor(red: 0, green: 0, blue: 0, alpha: alpha)
         }
         if id == -1 {
-            return NSColor(red: 255, green: 255, blue: 255, alpha: alpha)
+            return NSColor(red: 0, green: 0, blue: 1, alpha: alpha)
         }
         if id == -2 {
-            return NSColor(red: 255, green: 0, blue: 0, alpha: alpha)
+            return NSColor(red: 1, green: 0, blue: 0, alpha: alpha)
         }
         if id % 2 == 0 {
             r = (255 - 15 * id) % 255

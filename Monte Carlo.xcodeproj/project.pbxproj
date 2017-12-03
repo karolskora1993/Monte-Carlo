@@ -17,6 +17,9 @@
 		1887C6281FCC30E200680301 /* MCThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887C6271FCC30E200680301 /* MCThread.swift */; };
 		188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C5FED1FCAB575006376A6 /* ColorPicker.swift */; };
 		188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */; };
+		18B5D8351FD4441F00EE0C36 /* GeneralMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5D8341FD4441F00EE0C36 /* GeneralMethod.swift */; };
+		18B5D8371FD4448400EE0C36 /* CAMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5D8361FD4448400EE0C36 /* CAMethod.swift */; };
+		18B5D8391FD446F900EE0C36 /* MCMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5D8381FD446F900EE0C36 /* MCMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		1887C6271FCC30E200680301 /* MCThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCThread.swift; sourceTree = "<group>"; };
 		188C5FED1FCAB575006376A6 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPoint.swift; sourceTree = "<group>"; };
+		18B5D8341FD4441F00EE0C36 /* GeneralMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMethod.swift; sourceTree = "<group>"; };
+		18B5D8361FD4448400EE0C36 /* CAMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMethod.swift; sourceTree = "<group>"; };
+		18B5D8381FD446F900EE0C36 /* MCMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,9 @@
 				188C5FED1FCAB575006376A6 /* ColorPicker.swift */,
 				188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */,
 				1887C6271FCC30E200680301 /* MCThread.swift */,
+				18B5D8341FD4441F00EE0C36 /* GeneralMethod.swift */,
+				18B5D8361FD4448400EE0C36 /* CAMethod.swift */,
+				18B5D8381FD446F900EE0C36 /* MCMethod.swift */,
 			);
 			path = "Monte Carlo";
 			sourceTree = "<group>";
@@ -214,9 +223,12 @@
 			files = (
 				18493D9C1FC2D1EB009287C6 /* ViewController.swift in Sources */,
 				18493D9A1FC2D1EB009287C6 /* AppDelegate.swift in Sources */,
+				18B5D8391FD446F900EE0C36 /* MCMethod.swift in Sources */,
 				188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */,
 				187622D81FC42E4B006E3DE0 /* Mesh.swift in Sources */,
 				188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */,
+				18B5D8371FD4448400EE0C36 /* CAMethod.swift in Sources */,
+				18B5D8351FD4441F00EE0C36 /* GeneralMethod.swift in Sources */,
 				1887C6281FCC30E200680301 /* MCThread.swift in Sources */,
 				187622D61FC42814006E3DE0 /* Canvas.swift in Sources */,
 			);

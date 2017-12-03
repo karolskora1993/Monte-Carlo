@@ -33,7 +33,6 @@ class MCThread: Thread {
                     }
                 }
                 print("next: \(i)")
-                Thread.sleep(forTimeInterval: 0.1)
             }
         }
         DispatchQueue.main.async {

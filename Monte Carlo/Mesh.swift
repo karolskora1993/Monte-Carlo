@@ -16,12 +16,23 @@ class Mesh {
     var nextID = 1
     var chosenPoints = [[Bool]]()
     var maxID = 20
+    var method: GeneralMethod
     
-    init(withSize size: (height: Int, width: Int)) {
+    init(withSize size: (height: Int, width: Int), nextStepMethod: GeneralMethod = MCMethod()) {
         self.size = size
+        self.method = nextStepMethod
         self.initPoints()
         self.initChosenPoints()
     }
+    
+    func setCAMethod() {
+        self.method = CAMethod()
+    }
+    
+    func setMCMethod() {
+        self.method = MCMethod()
+    }
+    
     
     func isCompleted() -> Bool {
         for row in self.points {
@@ -37,11 +48,39 @@ class Mesh {
         return true
     }
     
+    func select(numberOfGrains:Int) {
+        let max = self.nextID == 1 ? self.maxID : self.nextID
+        var selectedIds = [Int]()
+        for _ in 0..<numberOfGrains {
+            var id = Int(arc4random_uniform(UInt32(max)))
+            while selectedIds.contains(id) {
+                id = Int(arc4random_uniform(UInt32(max)))
+            }
+            selectedIds.append(id)
+        }
+        self.selectPoints(withIDs: selectedIds)
+    }
+    
+    private func selectPoints(withIDs ids:[Int]) {
+        for i in 0..<self.size.height {
+            for j  in 0..<self.size.width {
+                if ids.contains(self.points[i][j].id) {
+                    self.points[i][j].selected = true
+                    self.points[i][j].id = -1
+                }else {
+                    self.points[i][j].selected = false
+                    self.points[i][j].id = 0
+                }
+            }
+        }
+        self.nextID = 1
+    }
+    
     private func initPoints() {
         for i in 0..<self.size.height {
             var row = [MCPoint]()
             for j in 0..<self.size.width {
-                row.append(MCPoint(id: 0, phase: 0, x: i, y: j))
+                row.append(MCPoint(withID: 0, x: i, y: j))
             }
             self.points.append(row)
         }
@@ -51,8 +90,10 @@ class Mesh {
         self.maxID = maxID
         for i in 0..<self.size.height {
             for j in 0..<self.size.width {
-                let randomID = Int(arc4random_uniform(UInt32(maxID))) + 1
-                self.points[i][j].id = randomID
+                if !self.points[i][j].selected {
+                    let randomID = Int(arc4random_uniform(UInt32(maxID))) + 1
+                    self.points[i][j].id = randomID
+                }
             }
         }
     }
@@ -75,6 +116,8 @@ class Mesh {
     }
     
     func clearPoints() {
+        self.points = [[MCPoint]]()
+        self.chosenPoints = [[Bool]]()
         self.initPoints()
         self.initChosenPoints()
     }
@@ -89,168 +132,8 @@ class Mesh {
         }
     }
     
-    private func clearChosenPoints() {
-        for i in 0..<self.size.height {
-            for j in 0..<self.size.width {
-                self.chosenPoints[i][j] = false
-            }
-        }
-    }
-    
-    private func checkForNotDrownElements() -> Bool {
-        for row in self.chosenPoints {
-            for element in row {
-                if !element {
-                    return true
-                }
-            }
-        }
-        return false
-    }
-    
-    private func drawNewID(forNeighbours ids:[[MCPoint]]) ->Int {
-        var x = Int(arc4random_uniform(UInt32(ids.count)))
-        var y = Int(arc4random_uniform(UInt32(ids[0].count)))
-        while x == y || ids[x][y].id == 0 {
-            x = Int(arc4random_uniform(UInt32(ids.count)))
-            y = Int(arc4random_uniform(UInt32(ids[0].count)))
-        }
-        return ids[x][y].id
-    }
-    
-    private func calculateEnergy(forChosenID chosenID:Int, neighbourhood:[[MCPoint]]) -> Int {
-        var energy = 0
-        for row in neighbourhood {
-            for element in row {
-                if element.id != chosenID && element.id != 0 {
-                    energy += 1
-                }
-            }
-        }
-        return energy
-    }
-    
-    func nextCA() {
-        var nextStep = self.points
-        for i in 0..<self.size.height {
-            for j in 0..<self.size.width {
-                if self.points[i][j].id == 0 {
-                    let neighbours = self.getNeighbourhood(i: i, j: j)
-                    var ids = [Int:Int]()
-                    for row in neighbours {
-                        for el in row {
-                            if el.id != 0 {
-                                if let count = ids[el.id] {
-                                    ids[el.id] = count + 1
-                                }else {
-                                    ids[el.id] = 1
-                                }
-                            }
-                        }
-                    }
-                    if !ids.isEmpty {
-                        let maxElement = ids.max{ a, b in a.value < b.value}
-                        if let maxID = maxElement?.1 {
-                            nextStep[i][j].id = maxID
-                        }
-                    }
-                }
-            }
-        }
-        self.points = nextStep
-    }
-    
     func next() {
-        self.clearChosenPoints()
-        while self.checkForNotDrownElements() {
-            var x = Int(arc4random_uniform(UInt32(self.size.height)))
-            var y = Int(arc4random_uniform(UInt32(self.size.width)))
-            while self.chosenPoints[x][y] {
-                x = Int(arc4random_uniform(UInt32(self.size.height)))
-                y = Int(arc4random_uniform(UInt32(self.size.width)))
-            }
-            let chosenID = self.points[x][y].id
-            let neighbours = self.getNeighbourhood(i: x, j: y)
-            let newID = self.drawNewID(forNeighbours: neighbours)
-            if self.calculateEnergy(forChosenID: newID, neighbourhood: neighbours) <= self.calculateEnergy(forChosenID: chosenID, neighbourhood: neighbours) {
-                self.points[x][y].id = newID
-            }
-            self.chosenPoints[x][y] = true
-        }
+        self.points = self.method.nextStep(withMCPoints: self.points)
     }
-    
-    private func getNeighbourhood(i:Int, j:Int) -> [[MCPoint]] {
-        var temp = [[MCPoint]]()
-        let point = MCPoint(id: 0, phase: 0, x: 0, y: 0)
-        for _ in 0..<3 {
-            temp.append([point, point, point])
-        }
-        
-        if i == 0 && j == 0 {
-            for k in 0..<2 {
-                for l in 0..<2 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        else if i == 0 && j != 0 && j != self.size.height - 1 {
-            for k in 0..<2 {
-                for l in -1..<2 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        else if i == 0 && j == self.size.height - 1 {
-            for k in 0..<2 {
-                for l in -1..<1 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        
-        else if  i == self.size.width - 1 && j == 0 {
-            for k in -1..<1 {
-                for l in 0..<2 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        else if  i == self.size.width - 1 && j != 0 && j != self.size.height - 1 {
-            for k in -1..<1 {
-                for l in -1..<2 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        else if i != 0 && j == self.size.height - 1 && i != self.size.width - 1 {
-            for k in -1..<2 {
-                for l in -1..<1 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        else if i == self.size.width - 1 && j == self.size.height - 1 {
-            for k in -1..<1 {
-                for l in -1..<1 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        
-        else if i != 0 && j == 0 && i != self.size.width - 1 {
-            for k in -1..<2 {
-                for l in 0..<2 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        else {
-            for k in -1..<2 {
-                for l in -1..<2 {
-                    temp[k + 1][l + 1] = self.points[i + k][j + l]
-                }
-            }
-        }
-        return temp
-    }
+
 }
