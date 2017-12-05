@@ -8,7 +8,9 @@
 
 import Cocoa
 
-class ViewController: NSViewController, UIUpdateDelegate {
+let methods = ["CA Method", "MCMethod"]
+
+class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NSComboBoxDataSource {
     
     
     @IBOutlet weak var canvas: Canvas!
@@ -17,22 +19,21 @@ class ViewController: NSViewController, UIUpdateDelegate {
     @IBOutlet weak var widthTextField: NSTextField!
     @IBOutlet weak var numberOfIDsTextField: NSTextField!
     @IBOutlet weak var startButton: NSButton!
-    @IBOutlet weak var startCAButton: NSButton!
-    
+    @IBOutlet weak var methodsComboBox: NSComboBox!
     @IBOutlet weak var selectIdsTextField: NSTextField!
     
     var mesh:Mesh?
-
+    
     
     //MARK: VC Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.generateMesh()
     }
-
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
     
@@ -43,7 +44,7 @@ class ViewController: NSViewController, UIUpdateDelegate {
         self.canvas.mesh = self.mesh
         self.updateCanvas()
     }
-
+    
     //MARK: Actions
     @IBAction func generateMeshButtonPressed(_ sender: Any) {
         self.generateMesh()
@@ -72,37 +73,59 @@ class ViewController: NSViewController, UIUpdateDelegate {
         }
     }
     
-    @IBAction func startCAButtonPressed(_ sender: Any) {
+    @IBAction func startButtonPressed(_ sender: NSButton) {
         if let mesh = self.mesh {
-            mesh.setCAMethod()
-            mesh.changeStarted()
-            self.updateStarted()
-            DispatchQueue.global().async {
-                while !mesh.isCompleted() && mesh.started {
-                    mesh.next()
-                    DispatchQueue.main.async { [weak self] in
-                        guard let strongSelf = self else { return }
-                        strongSelf.updateCanvas()
-                    }
-                }
-                DispatchQueue.main.async {
-                    self.updateCanvas()
-                    self.updateStarted()
-                }
-            }
+            switch self.methodsComboBox.indexOfSelectedItem {
+            case 0:
+                self.startCA(withMesh: mesh)
+            default:
+                self.startMC(withMesh: mesh)
 
+            }
         }
     }
-    @IBAction func startMCButtonPressed(_ sender: NSButton) {
-        if let mesh = self.mesh {
-            mesh.setMCMethod()
-            mesh.changeStarted()
-            self.updateStarted()
-            let thread = MCThread()
-            thread.numberOfSteps = self.numberOfStepsTextField.integerValue
-            thread.mesh = mesh
-            thread.delegate = self
-            thread.start()
+    
+    private func startCA(withMesh mesh: Mesh) {
+        mesh.setCAMethod()
+        mesh.changeStarted()
+        self.updateStarted()
+        DispatchQueue.global().async {
+            while !mesh.isCompleted() && mesh.started {
+                mesh.next()
+                DispatchQueue.main.async { [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.updateCanvas()
+                }
+            }
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.updateCanvas()
+                strongSelf.updateStarted()
+            }
+        }
+    }
+    
+    private func startMC(withMesh mesh: Mesh) {
+        mesh.setMCMethod()
+        mesh.changeStarted()
+        let numberOfSteps = self.numberOfStepsTextField.integerValue
+        self.updateStarted()
+        DispatchQueue.global(qos: .utility).async {
+            for i in 0..<numberOfSteps {
+                if !mesh.started {
+                    return
+                }
+                mesh.next()
+                DispatchQueue.main.async { [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.updateCanvas()
+                }
+                print("step: \(i)")
+            }
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.updateStarted()
+            }
         }
     }
     
@@ -122,14 +145,24 @@ class ViewController: NSViewController, UIUpdateDelegate {
     func updateStarted() {
         if let mesh = self.mesh {
             if mesh.started {
-                self.startButton.title = "STOP MC"
-                self.startCAButton.title = "STOP CA"
-
+                self.startButton.title = "STOP"
             } else {
-                self.startButton.title = "START MC"
-                self.startCAButton.title = "START CA"            }
+                self.startButton.title = "START"
+            }
         }
     }
+    
+    //MARK: ComboBox methods
+    
+    func numberOfItems(in comboBox: NSComboBox) -> Int {
+        return methods.count
+    }
+    
+    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
+        return methods[index]
+    }
+    
+    
     
 }
 

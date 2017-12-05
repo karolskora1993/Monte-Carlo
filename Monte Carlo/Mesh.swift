@@ -14,7 +14,6 @@ class Mesh {
     var size:(height: Int, width: Int)
     var started = false
     var nextID = 1
-    var chosenPoints = [[Bool]]()
     var maxID = 20
     var method: GeneralMethod
     
@@ -22,7 +21,6 @@ class Mesh {
         self.size = size
         self.method = nextStepMethod
         self.initPoints()
-        self.initChosenPoints()
     }
     
     func setCAMethod() {
@@ -76,6 +74,10 @@ class Mesh {
         self.nextID = 1
     }
     
+    func clearPoints() {
+        self.points = MCPoint.clearPoints(forMCPoints: self.points)
+    }
+    
     private func initPoints() {
         for i in 0..<self.size.height {
             var row = [MCPoint]()
@@ -112,23 +114,6 @@ class Mesh {
             }
             self.points[x][y].id = self.nextID
             self.nextID += 1
-        }
-    }
-    
-    func clearPoints() {
-        self.points = [[MCPoint]]()
-        self.chosenPoints = [[Bool]]()
-        self.initPoints()
-        self.initChosenPoints()
-    }
-    
-    private func initChosenPoints() {
-        for _ in 0..<self.size.height {
-            var row = [Bool]()
-            for _ in 0..<self.size.width {
-                row.append(false)
-            }
-            self.chosenPoints.append(row)
         }
     }
     

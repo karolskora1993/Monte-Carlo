@@ -25,6 +25,10 @@ class MCMethod: GeneralMethod {
             let newID = self.drawNewID(forNeighbours: neighbours)
             if self.calculateEnergy(forChosenID: newID, neighbourhood: neighbours) <= self.calculateEnergy(forChosenID: chosenID, neighbourhood: neighbours) {
                 points[x][y].id = newID
+            }else {
+                if arc4random_uniform(100) < 5 {
+                    points[x][y].id = newID
+                }
             }
             points[x][y].chosen = true
         }
@@ -34,7 +38,7 @@ class MCMethod: GeneralMethod {
     private func drawNewID(forNeighbours ids:[[MCPoint]]) ->Int {
         var x = Int(arc4random_uniform(UInt32(ids.count)))
         var y = Int(arc4random_uniform(UInt32(ids[0].count)))
-        while x == y || ids[x][y].id == 0 {
+        while x == y || ids[x][y].id == 0 || ids[x][y].selected {
             x = Int(arc4random_uniform(UInt32(ids.count)))
             y = Int(arc4random_uniform(UInt32(ids[0].count)))
         }
@@ -45,7 +49,7 @@ class MCMethod: GeneralMethod {
         var energy = 0
         for row in neighbourhood {
             for element in row {
-                if element.id != chosenID && element.id != 0 {
+                if element.id != chosenID && element.id != 0 && !element.selected {
                     energy += 1
                 }
             }

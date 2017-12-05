@@ -747,7 +747,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="selectButtonPressed:" target="XfG-lQ-9wD" id="832-V0-p2S"/>
+                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="832-V0-p2S"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -879,92 +879,94 @@
                                 <color key="fillColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="1pC-oU-vof">
-                                <rect key="frame" x="497" y="32" width="361" height="153"/>
+                                <rect key="frame" x="497" y="32" width="361" height="135"/>
                                 <view key="contentView" id="aUy-nP-naR">
-                                    <rect key="frame" x="1" y="1" width="359" height="151"/>
+                                    <rect key="frame" x="1" y="1" width="359" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="upu-nF-gLJ">
-                                            <rect key="frame" x="176" y="19" width="185" height="32"/>
-                                            <buttonCell key="cell" type="push" title="START MC" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UzC-tC-wRz">
+                                            <rect key="frame" x="182" y="1" width="179" height="32"/>
+                                            <buttonCell key="cell" type="push" title="START" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UzC-tC-wRz">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="startMCButtonPressed:" target="XfG-lQ-9wD" id="zcH-c1-SUe"/>
+                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="zcH-c1-SUe"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M8E-Xh-qBE">
-                                            <rect key="frame" x="-2" y="119" width="363" height="32"/>
+                                            <rect key="frame" x="-2" y="101" width="363" height="32"/>
                                             <buttonCell key="cell" type="push" title="GENERATE MESH" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jrb-qy-drm">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="generateMeshButtonPressed:" target="XfG-lQ-9wD" id="NPS-6S-osT"/>
+                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="NPS-6S-osT"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W0g-QW-MEZ">
-                                            <rect key="frame" x="-2" y="44" width="363" height="32"/>
+                                            <rect key="frame" x="-2" y="26" width="363" height="32"/>
                                             <buttonCell key="cell" type="push" title="GENERATE GRAINS" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sqg-fn-mHN">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="generateGrainsButtonPressed:" target="XfG-lQ-9wD" id="GhY-P4-oqd"/>
+                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="GhY-P4-oqd"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ujB-zC-Lc3">
-                                            <rect key="frame" x="-2" y="94" width="363" height="32"/>
+                                            <rect key="frame" x="-2" y="76" width="363" height="32"/>
                                             <buttonCell key="cell" type="push" title="CLEAR MESH" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R1l-ww-ouw">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="clearMeshButtonPressed:" target="XfG-lQ-9wD" id="Len-va-9An"/>
+                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="Len-va-9An"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ygt-i2-eMe">
-                                            <rect key="frame" x="-2" y="69" width="363" height="32"/>
+                                            <rect key="frame" x="-2" y="51" width="363" height="32"/>
                                             <buttonCell key="cell" type="push" title="FILL WITH GRAINS" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5O7-EC-AMQ">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="fillWithGrainsButtonPressed:" target="XfG-lQ-9wD" id="TIW-qA-PSW"/>
+                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="TIW-qA-PSW"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XiU-kc-mUf">
-                                            <rect key="frame" x="-2" y="19" width="186" height="32"/>
-                                            <buttonCell key="cell" type="push" title="START CA" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xdt-kL-95T">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9SA-dR-Efy">
+                                            <rect key="frame" x="4" y="4" width="171" height="26"/>
+                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="2" id="57j-Zo-O7k">
                                                 <font key="font" metaFont="system"/>
-                                            </buttonCell>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </comboBoxCell>
                                             <connections>
-                                                <action selector="startCAButtonPressed:" target="XfG-lQ-9wD" id="dBo-4t-g99"/>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="NoY-3h-9Ts"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="rYA-3R-9bK"/>
                                             </connections>
-                                        </button>
+                                        </comboBox>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="upu-nF-gLJ" firstAttribute="leading" secondItem="XiU-kc-mUf" secondAttribute="trailing" constant="4" id="08Z-Vh-s1o"/>
                                         <constraint firstAttribute="trailing" secondItem="M8E-Xh-qBE" secondAttribute="trailing" constant="4" id="2LN-QU-W97"/>
-                                        <constraint firstAttribute="bottom" secondItem="XiU-kc-mUf" secondAttribute="bottom" constant="26" id="3uL-BD-i5H"/>
+                                        <constraint firstAttribute="bottom" secondItem="9SA-dR-Efy" secondAttribute="bottom" constant="8" id="4wK-dr-Ams"/>
                                         <constraint firstItem="W0g-QW-MEZ" firstAttribute="leading" secondItem="Ygt-i2-eMe" secondAttribute="leading" id="8S1-S4-D6K"/>
+                                        <constraint firstItem="9SA-dR-Efy" firstAttribute="top" secondItem="W0g-QW-MEZ" secondAttribute="bottom" constant="5" id="9R6-yj-X4g"/>
+                                        <constraint firstItem="upu-nF-gLJ" firstAttribute="leading" secondItem="9SA-dR-Efy" secondAttribute="trailing" constant="16" id="AQv-w3-KSR"/>
                                         <constraint firstItem="W0g-QW-MEZ" firstAttribute="trailing" secondItem="Ygt-i2-eMe" secondAttribute="trailing" id="B5o-FC-M8Q"/>
                                         <constraint firstItem="Ygt-i2-eMe" firstAttribute="leading" secondItem="ujB-zC-Lc3" secondAttribute="leading" id="Ceo-MB-yaP"/>
                                         <constraint firstItem="M8E-Xh-qBE" firstAttribute="leading" secondItem="aUy-nP-naR" secondAttribute="leading" constant="4" id="E9l-uZ-9vl"/>
                                         <constraint firstItem="M8E-Xh-qBE" firstAttribute="top" secondItem="aUy-nP-naR" secondAttribute="top" constant="4" id="FaP-Bk-PCj"/>
                                         <constraint firstItem="ujB-zC-Lc3" firstAttribute="leading" secondItem="M8E-Xh-qBE" secondAttribute="leading" id="Ft3-Th-Htj"/>
-                                        <constraint firstItem="upu-nF-gLJ" firstAttribute="centerY" secondItem="XiU-kc-mUf" secondAttribute="centerY" id="Ntr-ar-NsH"/>
                                         <constraint firstItem="W0g-QW-MEZ" firstAttribute="top" secondItem="Ygt-i2-eMe" secondAttribute="bottom" constant="4" id="O44-yM-s1i"/>
                                         <constraint firstItem="Ygt-i2-eMe" firstAttribute="top" secondItem="ujB-zC-Lc3" secondAttribute="bottom" constant="4" id="SsV-9d-JKf"/>
                                         <constraint firstItem="ujB-zC-Lc3" firstAttribute="trailing" secondItem="M8E-Xh-qBE" secondAttribute="trailing" id="VsY-bj-hde"/>
                                         <constraint firstItem="Ygt-i2-eMe" firstAttribute="trailing" secondItem="ujB-zC-Lc3" secondAttribute="trailing" id="ap2-mJ-BBM"/>
-                                        <constraint firstItem="XiU-kc-mUf" firstAttribute="leading" secondItem="W0g-QW-MEZ" secondAttribute="leading" id="c6r-K4-gwC"/>
                                         <constraint firstItem="upu-nF-gLJ" firstAttribute="trailing" secondItem="W0g-QW-MEZ" secondAttribute="trailing" id="ejU-yT-DbW"/>
-                                        <constraint firstItem="upu-nF-gLJ" firstAttribute="width" secondItem="XiU-kc-mUf" secondAttribute="width" id="kj2-q8-Tqq"/>
-                                        <constraint firstItem="XiU-kc-mUf" firstAttribute="top" secondItem="W0g-QW-MEZ" secondAttribute="bottom" constant="4" id="oL3-eJ-OfP"/>
+                                        <constraint firstItem="9SA-dR-Efy" firstAttribute="leading" secondItem="W0g-QW-MEZ" secondAttribute="leading" id="her-sy-SPd"/>
+                                        <constraint firstItem="upu-nF-gLJ" firstAttribute="centerY" secondItem="9SA-dR-Efy" secondAttribute="centerY" id="pHF-Jw-1sr"/>
                                         <constraint firstItem="ujB-zC-Lc3" firstAttribute="top" secondItem="M8E-Xh-qBE" secondAttribute="bottom" constant="4" id="qeW-cY-dED"/>
+                                        <constraint firstItem="9SA-dR-Efy" firstAttribute="width" secondItem="upu-nF-gLJ" secondAttribute="width" id="yuW-6S-ZSn"/>
                                     </constraints>
                                 </view>
                                 <color key="fillColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
@@ -990,11 +992,11 @@
                     <connections>
                         <outlet property="canvas" destination="7oe-eX-IQX" id="UHc-Pm-qyw"/>
                         <outlet property="heightTextField" destination="CJb-sr-2st" id="mqA-7Z-4ty"/>
+                        <outlet property="methodsComboBox" destination="9SA-dR-Efy" id="dea-9A-aQC"/>
                         <outlet property="numberOfIDsTextField" destination="NQ1-nX-5tr" id="sfH-2f-fWj"/>
                         <outlet property="numberOfStepsTextField" destination="Yz1-0c-l1J" id="kMh-wR-Kzu"/>
                         <outlet property="selectIdsTextField" destination="8QF-KU-W6d" id="kMR-Aj-1TX"/>
                         <outlet property="startButton" destination="upu-nF-gLJ" id="RSp-Cw-6ya"/>
-                        <outlet property="startCAButton" destination="XiU-kc-mUf" id="Cwn-mo-RJ1"/>
                         <outlet property="widthTextField" destination="MiD-IS-8jj" id="cyh-Mc-G7c"/>
                     </connections>
                 </viewController>

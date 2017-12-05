@@ -36,10 +36,22 @@ struct MCPoint {
         return temp_points
     }
     
+    static func clearPoints(forMCPoints points: [[MCPoint]]) -> [[MCPoint]] {
+        var temp_points = points
+        for i in 0..<points.count {
+            for j in 0..<points[0].count {
+                temp_points[i][j].chosen = false
+                temp_points[i][j].selected = false
+                temp_points[i][j].id = 0
+            }
+        }
+        return temp_points
+    }
+    
     static func chechForNotDrawnElements(forPoints points:[[MCPoint]]) ->Bool {
         for row in points {
             for element in row {
-                if !element.chosen {
+                if !element.selected && !element.chosen  {
                     return true
                 }
             }

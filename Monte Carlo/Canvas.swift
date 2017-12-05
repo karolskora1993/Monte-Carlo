@@ -36,7 +36,6 @@ class Canvas: NSView {
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
         if let mesh = self.mesh, mesh.points.count > 0 {
             let context = NSGraphicsContext.current?.cgContext
             let rectSize = self.frame.size.height / CGFloat(mesh.size.height)
@@ -50,5 +49,6 @@ class Canvas: NSView {
                 }
             }
         }
+        super.draw(dirtyRect)
     }
 }
