@@ -747,7 +747,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="832-V0-p2S"/>
+                                                <action selector="selectButtonPressed:" target="XfG-lQ-9wD" id="wml-A3-Kee"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -891,7 +891,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="zcH-c1-SUe"/>
+                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="oTF-sc-Mtu"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M8E-Xh-qBE">
@@ -901,7 +901,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="NPS-6S-osT"/>
+                                                <action selector="generateMeshButtonPressed:" target="XfG-lQ-9wD" id="Zys-E7-Jfq"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W0g-QW-MEZ">
@@ -911,7 +911,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="GhY-P4-oqd"/>
+                                                <action selector="generateGrainsButtonPressed:" target="XfG-lQ-9wD" id="MkM-0h-0gP"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ujB-zC-Lc3">
@@ -921,7 +921,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="Len-va-9An"/>
+                                                <action selector="clearMeshButtonPressed:" target="XfG-lQ-9wD" id="7rs-PR-dEo"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ygt-i2-eMe">
@@ -931,7 +931,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="startButtonPressed:" target="XfG-lQ-9wD" id="TIW-qA-PSW"/>
+                                                <action selector="fillWithGrainsButtonPressed:" target="XfG-lQ-9wD" id="Lob-ge-fdT"/>
                                             </connections>
                                         </button>
                                         <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9SA-dR-Efy">

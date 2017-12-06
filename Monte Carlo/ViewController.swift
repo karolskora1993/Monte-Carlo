@@ -111,7 +111,7 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
         let numberOfSteps = self.numberOfStepsTextField.integerValue
         self.updateStarted()
         DispatchQueue.global(qos: .utility).async {
-            for i in 0..<numberOfSteps {
+            for _ in 0..<numberOfSteps {
                 if !mesh.started {
                     return
                 }
@@ -120,7 +120,6 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
                     guard let strongSelf = self else { return }
                     strongSelf.updateCanvas()
                 }
-                print("step: \(i)")
             }
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }

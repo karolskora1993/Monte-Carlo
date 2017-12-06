@@ -19,7 +19,7 @@ class Canvas: NSView {
     }
     
     func updateUI() {
-        self.setNeedsDisplay(self.frame)
+        self.setNeedsDisplay(self.bounds)
     }
     
     func initView() {
