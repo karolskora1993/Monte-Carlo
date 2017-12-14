@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="EnergyView" customModule="Monte_Carlo" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="c22-O7-iKe" id="13E-1q-dfC"/>
+                <outlet property="energyCanvas" destination="itq-T6-4zh" id="inS-r5-74d"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="594" height="463"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="itq-T6-4zh" customClass="EnergyCanvas" customModule="Monte_Carlo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="-39" width="541" height="541"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="itq-T6-4zh" secondAttribute="height" multiplier="1:1" id="MYy-Nw-qAT"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="603-5u-BYN" customClass="ColorGradientView" customModule="Monte_Carlo" customModuleProvider="target">
+                    <rect key="frame" x="557" y="53" width="33" height="357"/>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z9L-x5-CsJ">
+                    <rect key="frame" x="555" y="414" width="37" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="MAX" id="7aZ-tk-yOR">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BCk-m0-mpZ">
+                    <rect key="frame" x="555" y="32" width="37" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="MIN" id="A0f-zZ-jNv">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="BCk-m0-mpZ" secondAttribute="bottom" constant="32" id="2mv-9g-OkR"/>
+                <constraint firstItem="BCk-m0-mpZ" firstAttribute="trailing" secondItem="z9L-x5-CsJ" secondAttribute="trailing" id="8Si-Bj-pG8"/>
+                <constraint firstItem="603-5u-BYN" firstAttribute="top" secondItem="z9L-x5-CsJ" secondAttribute="bottom" constant="4" id="Dkq-Wc-vLk"/>
+                <constraint firstItem="BCk-m0-mpZ" firstAttribute="top" secondItem="603-5u-BYN" secondAttribute="bottom" constant="4" id="FZc-0Z-iSx"/>
+                <constraint firstItem="603-5u-BYN" firstAttribute="leading" secondItem="z9L-x5-CsJ" secondAttribute="leading" id="JLp-45-3qu"/>
+                <constraint firstItem="itq-T6-4zh" firstAttribute="centerY" secondItem="603-5u-BYN" secondAttribute="centerY" id="L1G-rI-I4y"/>
+                <constraint firstAttribute="trailing" secondItem="z9L-x5-CsJ" secondAttribute="trailing" constant="4" id="L2B-XC-qLL"/>
+                <constraint firstItem="603-5u-BYN" firstAttribute="trailing" secondItem="z9L-x5-CsJ" secondAttribute="trailing" id="TVk-vC-CYa"/>
+                <constraint firstItem="itq-T6-4zh" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ZaZ-Ct-qVd"/>
+                <constraint firstItem="z9L-x5-CsJ" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="32" id="fEQ-0E-EBY"/>
+                <constraint firstItem="BCk-m0-mpZ" firstAttribute="leading" secondItem="z9L-x5-CsJ" secondAttribute="leading" id="fti-8x-Jad"/>
+                <constraint firstItem="z9L-x5-CsJ" firstAttribute="leading" secondItem="itq-T6-4zh" secondAttribute="trailing" constant="16" id="qdl-Ws-IEB"/>
+            </constraints>
+            <point key="canvasLocation" x="156" y="263.5"/>
+        </customView>
+    </objects>
+</document>

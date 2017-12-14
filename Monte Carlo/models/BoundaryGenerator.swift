@@ -15,7 +15,13 @@ class BoundaryGenerator {
         for i in 0..<meshSize.height {
             for j in 0..<meshSize.width {
                 if !points[i][j].selected && points[i][j].id != 0 && !points[i][j].boundaryPoint {
-                    var neighbours = neighbourhood.generateNeighbourhood(forMCPoints: points, i: i, j: j)
+                    for row in neighbourhood.generateNeighbourhood(forMCPoints: points, i: i, j: j) {
+                        for neighbour in row {
+                            if !neighbour.selected && neighbour.id != points[i][j].id {
+                                points[i][j].boundaryPoint = true
+                            }
+                        }
+                    }
                 }
             }
         }

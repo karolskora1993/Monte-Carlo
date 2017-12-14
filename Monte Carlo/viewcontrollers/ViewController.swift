@@ -14,6 +14,7 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
     
     
     @IBOutlet weak var canvas: Canvas!
+    @IBOutlet weak var energyView: EnergyView!
     @IBOutlet weak var numberOfStepsTextField: NSTextField!
     @IBOutlet weak var heightTextField: NSTextField!
     @IBOutlet weak var widthTextField: NSTextField!
@@ -42,6 +43,7 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
         let height = self.heightTextField.integerValue
         self.mesh = Mesh(withSize: (height: height, width: width))
         self.canvas.mesh = self.mesh
+        self.energyView.mesh = self.mesh
         self.updateCanvas()
     }
     

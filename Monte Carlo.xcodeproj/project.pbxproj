@@ -17,6 +17,10 @@
 		1887C6281FCC30E200680301 /* MCThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887C6271FCC30E200680301 /* MCThread.swift */; };
 		188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C5FED1FCAB575006376A6 /* ColorPicker.swift */; };
 		188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */; };
+		1898F09C1FE2AB92005889D4 /* EnergyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1898F09B1FE2AB92005889D4 /* EnergyView.xib */; };
+		1898F09E1FE2ABB5005889D4 /* EnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898F09D1FE2ABB5005889D4 /* EnergyView.swift */; };
+		1898F0A01FE2AF15005889D4 /* ColorGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898F09F1FE2AF15005889D4 /* ColorGradientView.swift */; };
+		1898F0A21FE2C82D005889D4 /* EnergyCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898F0A11FE2C82D005889D4 /* EnergyCanvas.swift */; };
 		18B5D8351FD4441F00EE0C36 /* GeneralMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5D8341FD4441F00EE0C36 /* GeneralMethod.swift */; };
 		18B5D8371FD4448400EE0C36 /* CAMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5D8361FD4448400EE0C36 /* CAMethod.swift */; };
 		18B5D8391FD446F900EE0C36 /* MCMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5D8381FD446F900EE0C36 /* MCMethod.swift */; };
@@ -51,6 +55,10 @@
 		1887C6271FCC30E200680301 /* MCThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCThread.swift; sourceTree = "<group>"; };
 		188C5FED1FCAB575006376A6 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPoint.swift; sourceTree = "<group>"; };
+		1898F09B1FE2AB92005889D4 /* EnergyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnergyView.xib; sourceTree = "<group>"; };
+		1898F09D1FE2ABB5005889D4 /* EnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyView.swift; sourceTree = "<group>"; };
+		1898F09F1FE2AF15005889D4 /* ColorGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGradientView.swift; sourceTree = "<group>"; };
+		1898F0A11FE2C82D005889D4 /* EnergyCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyCanvas.swift; sourceTree = "<group>"; };
 		18B5D8341FD4441F00EE0C36 /* GeneralMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMethod.swift; sourceTree = "<group>"; };
 		18B5D8361FD4448400EE0C36 /* CAMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMethod.swift; sourceTree = "<group>"; };
 		18B5D8381FD446F900EE0C36 /* MCMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCMethod.swift; sourceTree = "<group>"; };
@@ -98,23 +106,15 @@
 		18493D981FC2D1EB009287C6 /* Monte Carlo */ = {
 			isa = PBXGroup;
 			children = (
+				1898F09A1FE2AB28005889D4 /* views */,
+				1898F0991FE2AB0B005889D4 /* models */,
+				1898F0981FE2AAF8005889D4 /* viewcontrollers */,
 				18493D991FC2D1EB009287C6 /* AppDelegate.swift */,
-				18493D9B1FC2D1EB009287C6 /* ViewController.swift */,
 				18493D9D1FC2D1EB009287C6 /* Assets.xcassets */,
 				18493D9F1FC2D1EB009287C6 /* Main.storyboard */,
 				18493DA21FC2D1EB009287C6 /* Info.plist */,
 				18493DA31FC2D1EB009287C6 /* Monte_Carlo.entitlements */,
-				187622D51FC42814006E3DE0 /* Canvas.swift */,
-				187622D71FC42E4B006E3DE0 /* Mesh.swift */,
-				188C5FED1FCAB575006376A6 /* ColorPicker.swift */,
-				188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */,
 				1887C6271FCC30E200680301 /* MCThread.swift */,
-				18B5D8341FD4441F00EE0C36 /* GeneralMethod.swift */,
-				18B5D8361FD4448400EE0C36 /* CAMethod.swift */,
-				18B5D8381FD446F900EE0C36 /* MCMethod.swift */,
-				18C968361FD86ACB00748F36 /* BoundaryGenerator.swift */,
-				18C968381FD86C8300748F36 /* Neighbourhood.swift */,
-				18C9683A1FD86CBF00748F36 /* MooreNeighbourhood.swift */,
 			);
 			path = "Monte Carlo";
 			sourceTree = "<group>";
@@ -126,6 +126,42 @@
 				18493DAE1FC2D1EB009287C6 /* Info.plist */,
 			);
 			path = "Monte CarloTests";
+			sourceTree = "<group>";
+		};
+		1898F0981FE2AAF8005889D4 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				18493D9B1FC2D1EB009287C6 /* ViewController.swift */,
+			);
+			path = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		1898F0991FE2AB0B005889D4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				188C5FED1FCAB575006376A6 /* ColorPicker.swift */,
+				187622D71FC42E4B006E3DE0 /* Mesh.swift */,
+				188C5FEF1FCAB9F7006376A6 /* MCPoint.swift */,
+				18B5D8341FD4441F00EE0C36 /* GeneralMethod.swift */,
+				18B5D8361FD4448400EE0C36 /* CAMethod.swift */,
+				18B5D8381FD446F900EE0C36 /* MCMethod.swift */,
+				18C968361FD86ACB00748F36 /* BoundaryGenerator.swift */,
+				18C968381FD86C8300748F36 /* Neighbourhood.swift */,
+				18C9683A1FD86CBF00748F36 /* MooreNeighbourhood.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		1898F09A1FE2AB28005889D4 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				187622D51FC42814006E3DE0 /* Canvas.swift */,
+				1898F09B1FE2AB92005889D4 /* EnergyView.xib */,
+				1898F09D1FE2ABB5005889D4 /* EnergyView.swift */,
+				1898F0A11FE2C82D005889D4 /* EnergyCanvas.swift */,
+				1898F09F1FE2AF15005889D4 /* ColorGradientView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1898F09C1FE2AB92005889D4 /* EnergyView.xib in Resources */,
 				18493D9E1FC2D1EB009287C6 /* Assets.xcassets in Resources */,
 				18493DA11FC2D1EB009287C6 /* Main.storyboard in Resources */,
 			);
@@ -233,10 +270,13 @@
 				18C9683B1FD86CBF00748F36 /* MooreNeighbourhood.swift in Sources */,
 				18493D9C1FC2D1EB009287C6 /* ViewController.swift in Sources */,
 				18493D9A1FC2D1EB009287C6 /* AppDelegate.swift in Sources */,
+				1898F0A21FE2C82D005889D4 /* EnergyCanvas.swift in Sources */,
 				18B5D8391FD446F900EE0C36 /* MCMethod.swift in Sources */,
 				188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */,
 				187622D81FC42E4B006E3DE0 /* Mesh.swift in Sources */,
+				1898F09E1FE2ABB5005889D4 /* EnergyView.swift in Sources */,
 				188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */,
+				1898F0A01FE2AF15005889D4 /* ColorGradientView.swift in Sources */,
 				18B5D8371FD4448400EE0C36 /* CAMethod.swift in Sources */,
 				18B5D8351FD4441F00EE0C36 /* GeneralMethod.swift in Sources */,
 				18C968371FD86ACB00748F36 /* BoundaryGenerator.swift in Sources */,

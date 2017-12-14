@@ -32,7 +32,6 @@ class Mesh {
         self.method = MCMethod()
     }
     
-    
     func isCompleted() -> Bool {
         for row in self.points {
             for el in row {

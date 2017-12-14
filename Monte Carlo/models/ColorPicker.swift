@@ -9,6 +9,8 @@
 import Foundation
 import AppKit
 
+let MAX_ENERGY: CGFloat = 100
+
 class ColorPicker {
     
     static func getColor(withID id:Int, alpha:CGFloat = 1) ->NSColor {
@@ -55,4 +57,12 @@ class ColorPicker {
 
         return NSColor(red: float_r, green: float_g, blue: float_b, alpha: alpha)
     }
+    
+    static func getEnergyColor(withEnergy energy:Int, alpha:CGFloat = 1) ->NSColor {
+        let red = CGFloat(energy) / MAX_ENERGY
+        let blue = (MAX_ENERGY - CGFloat(energy)) / MAX_ENERGY
+        
+        return NSColor(red: red, green: 0, blue: blue, alpha: alpha)
+    }
+
 }
