@@ -10,7 +10,7 @@ import Foundation
 
 class MCMethod: GeneralMethod {
     
-    func nextStep(withMCPoints points: [[MCPoint]]) -> [[MCPoint]] {
+    func nextStep(withMCPoints points: [[MCPoint]], andNeighbourhood neighbourhood: Neighbourhood) -> [[MCPoint]] {
         let size = (height: points.count, width: points[0].count)
         var points = MCPoint.clearChosen(forMCPoints: points)
         while MCPoint.chechForNotDrawnElements(forPoints: points) {
@@ -21,7 +21,7 @@ class MCMethod: GeneralMethod {
                 y = Int(arc4random_uniform(UInt32(size.width)))
             }
             let chosenID = points[x][y].id
-            let neighbours = self.getNeighbourhood(forMCPoints: points, i: x, j: y)
+            let neighbours = neighbourhood.generateNeighbourhood(forMCPoints: points, i: x, j: y)
             let newID = self.drawNewID(forNeighbours: neighbours)
             if self.calculateEnergy(forChosenID: newID, neighbourhood: neighbours) <= self.calculateEnergy(forChosenID: chosenID, neighbourhood: neighbours) {
                 points[x][y].id = newID

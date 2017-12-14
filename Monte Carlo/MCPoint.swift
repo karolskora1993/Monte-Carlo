@@ -15,6 +15,7 @@ struct MCPoint {
     var y:Int
     var selected = false
     var chosen = false
+    var boundaryPoint = false
     
     init(withID id:Int, x:Int, y:Int) {
         self.id = id

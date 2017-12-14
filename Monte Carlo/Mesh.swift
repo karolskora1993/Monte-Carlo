@@ -16,6 +16,7 @@ class Mesh {
     var nextID = 1
     var maxID = 20
     var method: GeneralMethod
+    var neighbourhood: Neighbourhood = MooreNeighbourhood()
     
     init(withSize size: (height: Int, width: Int), nextStepMethod: GeneralMethod = MCMethod()) {
         self.size = size
@@ -118,7 +119,7 @@ class Mesh {
     }
     
     func next() {
-        self.points = self.method.nextStep(withMCPoints: self.points)
+        self.points = self.method.nextStep(withMCPoints: self.points, andNeighbourhood: self.neighbourhood)
     }
-
+    
 }

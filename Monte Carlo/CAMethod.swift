@@ -9,13 +9,13 @@
 import Foundation
 
 class CAMethod: GeneralMethod {
-    func nextStep(withMCPoints points: [[MCPoint]]) -> [[MCPoint]] {
+    func nextStep(withMCPoints points: [[MCPoint]], andNeighbourhood neighbourhood: Neighbourhood) -> [[MCPoint]] {
         let size = (height: points.count, width: points[0].count)
         var nextStep = points
         for i in 0..<size.height {
             for j in 0..<size.width {
                 if points[i][j].id == 0  && points[i][j].selected == false {
-                    let neighbours = self.getNeighbourhood(forMCPoints: points, i: i, j: j)
+                    let neighbours = neighbourhood.generateNeighbourhood(forMCPoints: points, i: i, j: j)
                     var ids = [Int:Int]()
                     for row in neighbours {
                         for el in row {
