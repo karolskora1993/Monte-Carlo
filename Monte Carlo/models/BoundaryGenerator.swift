@@ -10,7 +10,8 @@ import Foundation
 
 class BoundaryGenerator {
     
-    static func findGrainBoundaries(forNeighbourhood neighbourhood:Neighbourhood, withPoints points: [[MCPoint]], lineSize: Int, andMeshSize meshSize: (height:Int, width:Int)) -> [[MCPoint]] {
+    static func findGrainBoundaries(forNeighbourhood neighbourhood:Neighbourhood, withPoints points: [[MCPoint]]) -> [[MCPoint]] {
+        let meshSize = (height: points.count, width: points[0].count)
         var points = points
         for i in 0..<meshSize.height {
             for j in 0..<meshSize.width {

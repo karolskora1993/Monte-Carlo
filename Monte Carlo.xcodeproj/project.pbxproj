@@ -27,6 +27,7 @@
 		18C968371FD86ACB00748F36 /* BoundaryGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C968361FD86ACB00748F36 /* BoundaryGenerator.swift */; };
 		18C968391FD86C8300748F36 /* Neighbourhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C968381FD86C8300748F36 /* Neighbourhood.swift */; };
 		18C9683B1FD86CBF00748F36 /* MooreNeighbourhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9683A1FD86CBF00748F36 /* MooreNeighbourhood.swift */; };
+		18D47C8A1FE3E1A3002C9700 /* Recrystallization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D47C891FE3E1A3002C9700 /* Recrystallization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		18C968361FD86ACB00748F36 /* BoundaryGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundaryGenerator.swift; sourceTree = "<group>"; };
 		18C968381FD86C8300748F36 /* Neighbourhood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neighbourhood.swift; sourceTree = "<group>"; };
 		18C9683A1FD86CBF00748F36 /* MooreNeighbourhood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MooreNeighbourhood.swift; sourceTree = "<group>"; };
+		18D47C891FE3E1A3002C9700 /* Recrystallization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recrystallization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				18C968361FD86ACB00748F36 /* BoundaryGenerator.swift */,
 				18C968381FD86C8300748F36 /* Neighbourhood.swift */,
 				18C9683A1FD86CBF00748F36 /* MooreNeighbourhood.swift */,
+				18D47C891FE3E1A3002C9700 /* Recrystallization.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				18493D9C1FC2D1EB009287C6 /* ViewController.swift in Sources */,
 				18493D9A1FC2D1EB009287C6 /* AppDelegate.swift in Sources */,
 				1898F0A21FE2C82D005889D4 /* EnergyCanvas.swift in Sources */,
+				18D47C8A1FE3E1A3002C9700 /* Recrystallization.swift in Sources */,
 				18B5D8391FD446F900EE0C36 /* MCMethod.swift in Sources */,
 				188C5FEE1FCAB575006376A6 /* ColorPicker.swift in Sources */,
 				187622D81FC42E4B006E3DE0 /* Mesh.swift in Sources */,

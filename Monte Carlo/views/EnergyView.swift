@@ -17,6 +17,10 @@ class EnergyView: NSView {
         }
     }
     
+    func updateUI() {
+        self.energyCanvas.updateUI()
+    }
+    
     @IBOutlet var contentView: NSView!
     @IBOutlet weak var energyCanvas: EnergyCanvas!
     

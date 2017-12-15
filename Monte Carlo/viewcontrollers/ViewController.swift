@@ -12,7 +12,7 @@ let methods = ["CA Method", "MCMethod"]
 
 class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NSComboBoxDataSource {
     
-    
+
     @IBOutlet weak var canvas: Canvas!
     @IBOutlet weak var energyView: EnergyView!
     @IBOutlet weak var numberOfStepsTextField: NSTextField!
@@ -22,6 +22,10 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
     @IBOutlet weak var startButton: NSButton!
     @IBOutlet weak var methodsComboBox: NSComboBox!
     @IBOutlet weak var selectIdsTextField: NSTextField!
+    @IBOutlet weak var EnergyDistComboBox: NSComboBox!
+    @IBOutlet weak var EnergyOnEdgesTextField: NSTextField!
+    @IBOutlet weak var nucleationRateTextField: NSTextField!
+    @IBOutlet weak var EnergyInsideTextFIeld: NSTextField!
     
     var mesh:Mesh?
     
@@ -137,10 +141,25 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
         }
     }
     
+    @IBAction func distributeBtnPressed(_ sender: Any) {
+        if let mesh = self.mesh {
+            let energyInside = self.EnergyInsideTextFIeld.integerValue
+            let boundEnergy = self.EnergyOnEdgesTextField.integerValue
+            self.mesh?.distribureEnergy(energyInside: energyInside, energyOnBounds: boundEnergy)
+            self.updateCanvas()
+        }
+
+    }
+    
+    
+    @IBAction func startRecrButtonPressed(_ sender: Any) {
+    }
+    
     //MARK: Delegate methods
     
     func updateCanvas() {
         self.canvas.updateUI()
+        self.energyView.updateUI()
     }
     
     func updateStarted() {

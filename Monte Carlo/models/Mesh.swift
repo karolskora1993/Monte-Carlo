@@ -121,4 +121,8 @@ class Mesh {
         self.points = self.method.nextStep(withMCPoints: self.points, andNeighbourhood: self.neighbourhood)
     }
     
+    func distribureEnergy(energyInside:Int, energyOnBounds: Int) {
+        self.points = Recrystallization.distribute(forPoints: self.points, neighbourhood: self.neighbourhood, internalEnergy: energyInside, andBoundaryEnergy: energyOnBounds)
+    }
+    
 }

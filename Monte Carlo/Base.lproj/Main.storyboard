@@ -988,13 +988,13 @@
                                 </tabViewItems>
                             </tabView>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-Xx-SaW">
-                                <rect key="frame" x="591" y="129" width="366" height="102"/>
+                                <rect key="frame" x="591" y="88" width="366" height="143"/>
                                 <view key="contentView" id="Jcr-7S-Ows">
-                                    <rect key="frame" x="1" y="1" width="364" height="100"/>
+                                    <rect key="frame" x="1" y="1" width="364" height="141"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fmO-oO-3A3">
-                                            <rect key="frame" x="2" y="79" width="122" height="17"/>
+                                            <rect key="frame" x="2" y="120" width="122" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="energy distribution:" id="Dy3-uH-YtF">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1002,7 +1002,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="inP-j3-cyj">
-                                            <rect key="frame" x="126" y="74" width="237" height="26"/>
+                                            <rect key="frame" x="126" y="115" width="237" height="26"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="2" id="gMw-dj-kEc">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1014,7 +1014,7 @@
                                             </comboBoxCell>
                                         </comboBox>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tjb-Fn-gUV">
-                                            <rect key="frame" x="2" y="54" width="122" height="17"/>
+                                            <rect key="frame" x="2" y="95" width="122" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="energy inside:" id="NhP-vw-N3b">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1022,7 +1022,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NyK-er-6TS">
-                                            <rect key="frame" x="2" y="29" width="122" height="17"/>
+                                            <rect key="frame" x="2" y="70" width="122" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="energy on edges:" id="WMe-WT-agE">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1030,7 +1030,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="59i-Bo-dxQ">
-                                            <rect key="frame" x="2" y="4" width="122" height="17"/>
+                                            <rect key="frame" x="2" y="45" width="122" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="nucleation rate:" id="g9n-MY-Zwk">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1038,7 +1038,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ssz-aA-hfV">
-                                            <rect key="frame" x="126" y="52" width="234" height="22"/>
+                                            <rect key="frame" x="126" y="93" width="234" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="5" drawsBackground="YES" id="hQn-5g-OFt">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1046,7 +1046,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TCF-cl-qox">
-                                            <rect key="frame" x="126" y="27" width="234" height="22"/>
+                                            <rect key="frame" x="126" y="68" width="234" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="10" drawsBackground="YES" id="4pP-gh-Avg">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1054,32 +1054,58 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="scG-yW-VHc">
-                                            <rect key="frame" x="126" y="1" width="234" height="22"/>
+                                            <rect key="frame" x="126" y="42" width="234" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="10" drawsBackground="YES" id="gVG-g4-5Vz">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4oh-kV-gdw">
+                                            <rect key="frame" x="-2" y="-3" width="188" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Distribute" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g3Y-PH-4JA">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="distributeBtnPressed:" target="XfG-lQ-9wD" id="pzh-Rz-UNf"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1jE-uJ-xgo">
+                                            <rect key="frame" x="178" y="-3" width="188" height="32"/>
+                                            <buttonCell key="cell" type="push" title="START" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TnT-WU-OeJ">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="startRecrButtonPressed:" target="XfG-lQ-9wD" id="zl4-rj-12a"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="59i-Bo-dxQ" firstAttribute="top" secondItem="NyK-er-6TS" secondAttribute="bottom" constant="8" id="4RD-Fn-CpS"/>
                                         <constraint firstItem="NyK-er-6TS" firstAttribute="trailing" secondItem="tjb-Fn-gUV" secondAttribute="trailing" id="7BU-JJ-YWb"/>
                                         <constraint firstItem="tjb-Fn-gUV" firstAttribute="leading" secondItem="fmO-oO-3A3" secondAttribute="leading" id="8zi-V7-xhx"/>
                                         <constraint firstItem="inP-j3-cyj" firstAttribute="centerY" secondItem="fmO-oO-3A3" secondAttribute="centerY" id="CF6-id-gy3"/>
+                                        <constraint firstItem="1jE-uJ-xgo" firstAttribute="leading" secondItem="4oh-kV-gdw" secondAttribute="trailing" constant="4" id="CGJ-BZ-6HH"/>
                                         <constraint firstItem="ssz-aA-hfV" firstAttribute="centerY" secondItem="tjb-Fn-gUV" secondAttribute="centerY" id="FZI-sK-FBw"/>
-                                        <constraint firstAttribute="bottom" secondItem="59i-Bo-dxQ" secondAttribute="bottom" constant="4" id="I2A-LV-AEf"/>
                                         <constraint firstItem="tjb-Fn-gUV" firstAttribute="top" secondItem="fmO-oO-3A3" secondAttribute="bottom" constant="8" id="NZC-D4-R14"/>
                                         <constraint firstItem="ssz-aA-hfV" firstAttribute="leading" secondItem="inP-j3-cyj" secondAttribute="leading" id="OO0-4g-8fB"/>
                                         <constraint firstAttribute="trailing" secondItem="inP-j3-cyj" secondAttribute="trailing" constant="4" id="Ogb-fB-uZc"/>
                                         <constraint firstItem="59i-Bo-dxQ" firstAttribute="trailing" secondItem="NyK-er-6TS" secondAttribute="trailing" id="PgD-hN-zwZ"/>
+                                        <constraint firstItem="1jE-uJ-xgo" firstAttribute="trailing" secondItem="scG-yW-VHc" secondAttribute="trailing" id="PiA-Hp-2s6"/>
                                         <constraint firstItem="TCF-cl-qox" firstAttribute="leading" secondItem="ssz-aA-hfV" secondAttribute="leading" id="QdQ-qs-8Dy"/>
                                         <constraint firstItem="scG-yW-VHc" firstAttribute="centerY" secondItem="59i-Bo-dxQ" secondAttribute="centerY" id="Qkt-xe-0H2"/>
+                                        <constraint firstItem="4oh-kV-gdw" firstAttribute="width" secondItem="1jE-uJ-xgo" secondAttribute="width" id="VF6-vg-ES0"/>
+                                        <constraint firstItem="1jE-uJ-xgo" firstAttribute="centerY" secondItem="4oh-kV-gdw" secondAttribute="centerY" id="WV1-iU-1ky"/>
+                                        <constraint firstItem="4oh-kV-gdw" firstAttribute="top" secondItem="59i-Bo-dxQ" secondAttribute="bottom" constant="20" id="WVj-TF-MBG"/>
                                         <constraint firstItem="NyK-er-6TS" firstAttribute="top" secondItem="tjb-Fn-gUV" secondAttribute="bottom" constant="8" id="dYf-3I-dP9"/>
                                         <constraint firstItem="ssz-aA-hfV" firstAttribute="trailing" secondItem="inP-j3-cyj" secondAttribute="trailing" id="l3g-N1-abK"/>
                                         <constraint firstItem="inP-j3-cyj" firstAttribute="leading" secondItem="fmO-oO-3A3" secondAttribute="trailing" constant="4" id="lJY-r9-tes"/>
+                                        <constraint firstAttribute="bottom" secondItem="4oh-kV-gdw" secondAttribute="bottom" constant="4" id="mgk-ik-hfy"/>
                                         <constraint firstItem="TCF-cl-qox" firstAttribute="centerY" secondItem="NyK-er-6TS" secondAttribute="centerY" id="nPG-eM-BzS"/>
                                         <constraint firstItem="TCF-cl-qox" firstAttribute="trailing" secondItem="ssz-aA-hfV" secondAttribute="trailing" id="p6o-Gs-rWb"/>
+                                        <constraint firstItem="4oh-kV-gdw" firstAttribute="leading" secondItem="59i-Bo-dxQ" secondAttribute="leading" id="qXh-QH-68X"/>
                                         <constraint firstItem="tjb-Fn-gUV" firstAttribute="trailing" secondItem="fmO-oO-3A3" secondAttribute="trailing" id="qhh-u7-iWs"/>
                                         <constraint firstItem="fmO-oO-3A3" firstAttribute="leading" secondItem="Jcr-7S-Ows" secondAttribute="leading" constant="4" id="rM0-eA-bLM"/>
                                         <constraint firstItem="scG-yW-VHc" firstAttribute="leading" secondItem="TCF-cl-qox" secondAttribute="leading" id="uVb-Ni-ojH"/>
@@ -1115,10 +1141,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="EnergyDistComboBox" destination="inP-j3-cyj" id="3sc-Jy-bSC"/>
+                        <outlet property="EnergyInsideTextFIeld" destination="ssz-aA-hfV" id="ux6-EE-1IM"/>
+                        <outlet property="EnergyOnEdgesTextField" destination="TCF-cl-qox" id="Loa-Cb-jnF"/>
                         <outlet property="canvas" destination="6Pj-xH-1J9" id="Ggw-56-MPC"/>
                         <outlet property="energyView" destination="0Gr-gk-nV0" id="rTj-ew-T1w"/>
                         <outlet property="heightTextField" destination="CJb-sr-2st" id="mqA-7Z-4ty"/>
                         <outlet property="methodsComboBox" destination="9SA-dR-Efy" id="dea-9A-aQC"/>
+                        <outlet property="nucleationRateTextField" destination="scG-yW-VHc" id="28H-nJ-ak2"/>
                         <outlet property="numberOfIDsTextField" destination="NQ1-nX-5tr" id="sfH-2f-fWj"/>
                         <outlet property="numberOfStepsTextField" destination="Yz1-0c-l1J" id="kMh-wR-Kzu"/>
                         <outlet property="selectIdsTextField" destination="8QF-KU-W6d" id="kMR-Aj-1TX"/>
