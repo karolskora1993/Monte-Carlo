@@ -145,7 +145,7 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
         if let mesh = self.mesh {
             let energyInside = self.EnergyInsideTextFIeld.integerValue
             let boundEnergy = self.EnergyOnEdgesTextField.integerValue
-            self.mesh?.distribureEnergy(energyInside: energyInside, energyOnBounds: boundEnergy)
+            mesh.distribureEnergy(energyInside: energyInside, energyOnBounds: boundEnergy)
             self.updateCanvas()
         }
 
