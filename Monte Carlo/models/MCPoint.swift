@@ -63,4 +63,15 @@ struct MCPoint {
         return false
     }
     
+    static func chechForRecrystalizedElements(forPoints points:[[MCPoint]]) ->Bool {
+        for row in points {
+            for element in row {
+                if element.recrystalized {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
 }

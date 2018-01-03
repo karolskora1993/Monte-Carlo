@@ -10,12 +10,17 @@ import Foundation
 
 
 protocol Nucleationtype {
-    func addNucleons(forPoints points: [[MCPoint]], nucleonsCount: Int, onEdges:Bool) -> [[MCPoint]]
+    var nucleonsCount: Int {get set}
+    var onEdges: Bool {get set}
+    func addNucleons(forPoints points: [[MCPoint]]) -> [[MCPoint]]
 }
 
 class ConstantNucleation: Nucleationtype {
+    var nucleonsCount: Int = 0
+    var onEdges: Bool = false
     
-    func addNucleons(forPoints points: [[MCPoint]], nucleonsCount: Int, onEdges:Bool = false) -> [[MCPoint]] {
+    
+    func addNucleons(forPoints points: [[MCPoint]]) -> [[MCPoint]] {
         var points = points
         let size = (height: points.count, width: points[0].count)
         for _ in 0..<nucleonsCount {
@@ -34,13 +39,14 @@ class ConstantNucleation: Nucleationtype {
 }
 
 class IncreasingNucleation: Nucleationtype {
+    var nucleonsCount: Int = 0
+    var onEdges: Bool = false
     
-    var lastCount = 0
-    func addNucleons(forPoints points: [[MCPoint]], nucleonsCount: Int, onEdges:Bool = false) -> [[MCPoint]] {
-        self.lastCount += nucleonsCount
+    func addNucleons(forPoints points: [[MCPoint]]) -> [[MCPoint]] {
+        self.nucleonsCount *= 2
         var points = points
         let size = (height: points.count, width: points[0].count)
-        for _ in 0..<self.lastCount {
+        for _ in 0..<self.nucleonsCount {
             var x = Int(arc4random_uniform(UInt32(size.height)))
             var y = Int(arc4random_uniform(UInt32(size.width)))
             while points[x][y].recrystalized || (onEdges && points[x][y].boundaryPoint) {
@@ -56,7 +62,10 @@ class IncreasingNucleation: Nucleationtype {
 }
 
 class AtBeginNucleation: Nucleationtype {
-    func addNucleons(forPoints points: [[MCPoint]], nucleonsCount: Int, onEdges:Bool = false) -> [[MCPoint]] {
+    var nucleonsCount: Int = 0
+    var onEdges: Bool = false
+    
+    func addNucleons(forPoints points: [[MCPoint]]) -> [[MCPoint]] {
         var points = points
         if self.checkForFirstNucleation(forPoints: points) {
             let size = (height: points.count, width: points[0].count)
