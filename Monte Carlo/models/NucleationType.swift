@@ -21,7 +21,7 @@ class ConstantNucleation: Nucleationtype {
         for _ in 0..<nucleonsCount {
             var x = Int(arc4random_uniform(UInt32(size.height)))
             var y = Int(arc4random_uniform(UInt32(size.width)))
-            while points[x][y].recrystalized {
+            while points[x][y].recrystalized || (onEdges && points[x][y].boundaryPoint) {
                 x = Int(arc4random_uniform(UInt32(size.height)))
                 y = Int(arc4random_uniform(UInt32(size.width)))
             }
@@ -43,7 +43,7 @@ class IncreasingNucleation: Nucleationtype {
         for _ in 0..<self.lastCount {
             var x = Int(arc4random_uniform(UInt32(size.height)))
             var y = Int(arc4random_uniform(UInt32(size.width)))
-            while points[x][y].recrystalized {
+            while points[x][y].recrystalized || (onEdges && points[x][y].boundaryPoint) {
                 x = Int(arc4random_uniform(UInt32(size.height)))
                 y = Int(arc4random_uniform(UInt32(size.width)))
             }
@@ -63,7 +63,7 @@ class AtBeginNucleation: Nucleationtype {
             for _ in 0..<nucleonsCount {
                 var x = Int(arc4random_uniform(UInt32(size.height)))
                 var y = Int(arc4random_uniform(UInt32(size.width)))
-                while points[x][y].recrystalized {
+                while points[x][y].recrystalized  || (onEdges && points[x][y].boundaryPoint) {
                     x = Int(arc4random_uniform(UInt32(size.height)))
                     y = Int(arc4random_uniform(UInt32(size.width)))
                 }
