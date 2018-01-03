@@ -9,9 +9,10 @@
 import Foundation
 import AppKit
 
-let MAX_ENERGY: CGFloat = 100
 
 class ColorPicker {
+    
+    static var MAX_ENERGY: CGFloat = 10
     
     static func getColor(withID id:Int, alpha:CGFloat = 1) ->NSColor {
         var r, g, b: Int

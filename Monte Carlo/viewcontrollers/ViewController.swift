@@ -146,6 +146,7 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
             let energyInside = self.EnergyInsideTextFIeld.integerValue
             let boundEnergy = self.EnergyOnEdgesTextField.integerValue
             mesh.distribureEnergy(energyInside: energyInside, energyOnBounds: boundEnergy)
+            ColorPicker.MAX_ENERGY = CGFloat(boundEnergy)
             self.updateCanvas()
         }
 
@@ -153,6 +154,17 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
     
     
     @IBAction func startRecrButtonPressed(_ sender: Any) {
+        if let mesh = self.mesh {
+            DispatchQueue.global().async {
+                while !mesh.isRecrystalized() {
+                    mesh.nextRectrystalizationStep()
+                    DispatchQueue.main.async { [weak self] in
+                        guard let strongSelf = self else { return }
+                        strongSelf.updateCanvas()
+                    }
+                }
+            }
+        }
     }
     
     //MARK: Delegate methods

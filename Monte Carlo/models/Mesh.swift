@@ -13,7 +13,7 @@ class Mesh {
     var points = [[MCPoint]]()
     var size:(height: Int, width: Int)
     var started = false
-    var nextID = 1
+    static var nextID = 1
     var maxID = 20
     var method: GeneralMethod
     var neighbourhood: Neighbourhood = MooreNeighbourhood()
@@ -42,6 +42,17 @@ class Mesh {
         }
         if self.started {
             self.started = false
+        }
+        return true
+    }
+    
+    func isRecrystalized() -> Bool {
+        for row in self.points {
+            for el in row {
+                if !el.recrystalized {
+                    return false
+                }
+            }
         }
         return true
     }
@@ -121,6 +132,9 @@ class Mesh {
         self.points = self.method.nextStep(withMCPoints: self.points, andNeighbourhood: self.neighbourhood)
     }
     
+    func nextRectrystalizationStep() {
+        self.points = self.method.nextStep(withMCPoints: self.points, andNeighbourhood: self.neighbourhood)
+    }
     func distribureEnergy(energyInside:Int, energyOnBounds: Int) {
         self.points = Recrystallization.distribute(forPoints: self.points, neighbourhood: self.neighbourhood, internalEnergy: energyInside, andBoundaryEnergy: energyOnBounds)
     }

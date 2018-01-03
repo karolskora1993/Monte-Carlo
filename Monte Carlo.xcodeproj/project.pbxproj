@@ -28,6 +28,7 @@
 		18C968391FD86C8300748F36 /* Neighbourhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C968381FD86C8300748F36 /* Neighbourhood.swift */; };
 		18C9683B1FD86CBF00748F36 /* MooreNeighbourhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9683A1FD86CBF00748F36 /* MooreNeighbourhood.swift */; };
 		18D47C8A1FE3E1A3002C9700 /* Recrystallization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D47C891FE3E1A3002C9700 /* Recrystallization.swift */; };
+		18FBF6FA1FFD016200C30F70 /* NucleationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBF6F91FFD016200C30F70 /* NucleationType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		18C968381FD86C8300748F36 /* Neighbourhood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neighbourhood.swift; sourceTree = "<group>"; };
 		18C9683A1FD86CBF00748F36 /* MooreNeighbourhood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MooreNeighbourhood.swift; sourceTree = "<group>"; };
 		18D47C891FE3E1A3002C9700 /* Recrystallization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recrystallization.swift; sourceTree = "<group>"; };
+		18FBF6F91FFD016200C30F70 /* NucleationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NucleationType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				18C968381FD86C8300748F36 /* Neighbourhood.swift */,
 				18C9683A1FD86CBF00748F36 /* MooreNeighbourhood.swift */,
 				18D47C891FE3E1A3002C9700 /* Recrystallization.swift */,
+				18FBF6F91FFD016200C30F70 /* NucleationType.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				1898F09E1FE2ABB5005889D4 /* EnergyView.swift in Sources */,
 				188C5FF01FCAB9F7006376A6 /* MCPoint.swift in Sources */,
 				1898F0A01FE2AF15005889D4 /* ColorGradientView.swift in Sources */,
+				18FBF6FA1FFD016200C30F70 /* NucleationType.swift in Sources */,
 				18B5D8371FD4448400EE0C36 /* CAMethod.swift in Sources */,
 				18B5D8351FD4441F00EE0C36 /* GeneralMethod.swift in Sources */,
 				18C968371FD86ACB00748F36 /* BoundaryGenerator.swift in Sources */,

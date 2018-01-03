@@ -17,6 +17,7 @@ struct MCPoint {
     var chosen = false
     var boundaryPoint = false
     var energy = 0
+    var recrystalized = false
     
     init(withID id:Int, x:Int, y:Int) {
         self.id = id

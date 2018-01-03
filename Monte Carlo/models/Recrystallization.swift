@@ -24,7 +24,7 @@ class Recrystallization {
         return points
     }
     
-    static func nextStep(forPoints points: [[MCPoint]]) -> [[MCPoint]] {
+    static func nextStep(forPoints points: [[MCPoint]], andNucleationType nucleationType: Nucleationtype) -> [[MCPoint]] {
         //MARK: TODO
         return points
     }
