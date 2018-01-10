@@ -28,22 +28,26 @@ class Recrystallization {
         var points = nucleationType.addNucleons(forPoints: points)
         let size = (height: points.count, width: points[0].count)
         points = MCPoint.clearChosen(forMCPoints: points)
-        while MCPoint.chechForNotDrawnElements(forPoints: points) {
+        var recrystalized = false
+        while !recrystalized {
             var x = Int(arc4random_uniform(UInt32(size.height)))
             var y = Int(arc4random_uniform(UInt32(size.width)))
             while points[x][y].chosen || points[x][y].selected || points[x][y].recrystalized {
                 x = Int(arc4random_uniform(UInt32(size.height)))
                 y = Int(arc4random_uniform(UInt32(size.width)))
             }
+            points[x][y].chosen = true
             var chosenPoint = points[x][y]
             let neighbours = neighbourhood.generateNeighbourhood(forMCPoints: points, i: x, j: y)
             if let newID = self.checkForRecrystalizedNeighbours(forNeighbourhood: neighbours) {
                 let oldEnergy = self.calculateEnergy(OfElement: chosenPoint, withNeighbourhood: neighbours, recrystalized: false)
                 chosenPoint.id = newID
                 chosenPoint.energy = 0
+                chosenPoint.recrystalized = true
                 let newEnergy = self.calculateEnergy(OfElement: points[x][y], withNeighbourhood: neighbours, recrystalized: false)
                 if newEnergy <= oldEnergy {
                     points[x][y] = chosenPoint
+                    recrystalized = true
                 }
             }
         }

@@ -22,10 +22,11 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
     @IBOutlet weak var startButton: NSButton!
     @IBOutlet weak var methodsComboBox: NSComboBox!
     @IBOutlet weak var selectIdsTextField: NSTextField!
-    @IBOutlet weak var EnergyDistComboBox: NSComboBox!
+    @IBOutlet weak var nucleationType: NSComboBox!
     @IBOutlet weak var EnergyOnEdgesTextField: NSTextField!
     @IBOutlet weak var nucleationRateTextField: NSTextField!
     @IBOutlet weak var EnergyInsideTextFIeld: NSTextField!
+    @IBOutlet weak var onEdgesCheckBox: NSButton!
     
     var mesh:Mesh?
     
@@ -155,17 +156,36 @@ class ViewController: NSViewController, UIUpdateDelegate, NSComboBoxDelegate, NS
     
     @IBAction func startRecrButtonPressed(_ sender: Any) {
         if let mesh = self.mesh {
-            DispatchQueue.global().async {
+            let nucleationIndex = self.nucleationType.indexOfSelectedItem
+            let count = self.nucleationRateTextField.integerValue
+            let onEdges = (self.onEdgesCheckBox.state == NSControl.StateValue.on) ? true  : false
+            DispatchQueue.global(qos: .utility).async {
                 while !mesh.isRecrystalized() {
-                    mesh.nextRectrystalizationStep()
+                    mesh.nextRectrystalizationStep(withNucleationIndex: nucleationIndex, count: count, onEdges: onEdges)
                     DispatchQueue.main.async { [weak self] in
                         guard let strongSelf = self else { return }
                         strongSelf.updateCanvas()
                     }
+//                    sleep(2)
                 }
             }
         }
     }
+    
+    @IBAction func addRecrNucleonsBtnPressed(_ sender: Any) {
+        if let mesh = self.mesh {
+            let nucleationIndex = self.nucleationType.indexOfSelectedItem
+            let count = self.nucleationRateTextField.integerValue
+            let onEdges = (self.onEdgesCheckBox.state == NSControl.StateValue.on) ? true  : false
+            mesh.addRecrNucleons(forIndex: nucleationIndex, count: count, onEdges: onEdges)
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.updateCanvas()
+            }
+        }
+    }
+    
+
     
     //MARK: Delegate methods
     

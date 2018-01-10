@@ -15,6 +15,7 @@ protocol Nucleationtype {
     func addNucleons(forPoints points: [[MCPoint]]) -> [[MCPoint]]
 }
 
+
 class ConstantNucleation: Nucleationtype {
     var nucleonsCount: Int = 0
     var onEdges: Bool = false
@@ -32,6 +33,7 @@ class ConstantNucleation: Nucleationtype {
             }
             points[x][y].id = Mesh.nextID
             points[x][y].recrystalized = true
+            points[x][y].energy = 0
             Mesh.nextID += 1
         }
         return points
@@ -55,6 +57,7 @@ class IncreasingNucleation: Nucleationtype {
             }
             points[x][y].id = Mesh.nextID
             points[x][y].recrystalized = true
+            points[x][y].energy = 0
             Mesh.nextID += 1
         }
         return points
@@ -72,12 +75,13 @@ class AtBeginNucleation: Nucleationtype {
             for _ in 0..<nucleonsCount {
                 var x = Int(arc4random_uniform(UInt32(size.height)))
                 var y = Int(arc4random_uniform(UInt32(size.width)))
-                while points[x][y].recrystalized  || (onEdges && points[x][y].boundaryPoint) {
+                while points[x][y].recrystalized  || (onEdges && !points[x][y].boundaryPoint) {
                     x = Int(arc4random_uniform(UInt32(size.height)))
                     y = Int(arc4random_uniform(UInt32(size.width)))
                 }
                 points[x][y].id = Mesh.nextID
                 points[x][y].recrystalized = true
+                points[x][y].energy = 0
                 Mesh.nextID += 1
             }
         }

@@ -55,13 +55,14 @@ struct MCPoint {
     static func chechForNotDrawnElements(forPoints points:[[MCPoint]]) ->Bool {
         for row in points {
             for element in row {
-                if !element.selected && !element.chosen  {
+                if !element.selected && !element.chosen && !element.recrystalized  {
                     return true
                 }
             }
         }
         return false
     }
+    
     
     static func chechForRecrystalizedElements(forPoints points:[[MCPoint]]) ->Bool {
         for row in points {

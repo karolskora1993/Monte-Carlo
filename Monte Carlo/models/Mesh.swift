@@ -58,7 +58,7 @@ class Mesh {
     }
     
     func select(numberOfGrains:Int) {
-        let max = self.nextID == 1 ? self.maxID : self.nextID
+        let max = Mesh.nextID == 1 ? self.maxID : Mesh.nextID
         var selectedIds = [Int]()
         for _ in 0..<numberOfGrains {
             var id = Int(arc4random_uniform(UInt32(max)))
@@ -82,7 +82,7 @@ class Mesh {
                 }
             }
         }
-        self.nextID = 1
+        Mesh.nextID = 1
     }
     
     func clearPoints() {
@@ -123,8 +123,8 @@ class Mesh {
                 x = Int(arc4random_uniform(UInt32(self.size.height)))
                 y = Int(arc4random_uniform(UInt32(self.size.width)))
             }
-            self.points[x][y].id = self.nextID
-            self.nextID += 1
+            self.points[x][y].id = Mesh.nextID
+            Mesh.nextID += 1
         }
     }
     
@@ -132,11 +132,41 @@ class Mesh {
         self.points = self.method.nextStep(withMCPoints: self.points, andNeighbourhood: self.neighbourhood)
     }
     
-    func nextRectrystalizationStep() {
-        self.points = self.method.nextStep(withMCPoints: self.points, andNeighbourhood: self.neighbourhood)
+    func nextRectrystalizationStep(withNucleationIndex index:Int, count:Int, onEdges:Bool) {
+        var nucleationType = self.createNucleation(forIndex: index)
+        nucleationType.nucleonsCount = count
+        nucleationType.onEdges = onEdges
+        self.points = Recrystallization.nextStep(forPoints: self.points, andNucleationType: nucleationType, neighbourhood: self.neighbourhood)
     }
     func distribureEnergy(energyInside:Int, energyOnBounds: Int) {
         self.points = Recrystallization.distribute(forPoints: self.points, neighbourhood: self.neighbourhood, internalEnergy: energyInside, andBoundaryEnergy: energyOnBounds)
+    }
+    
+    func createNucleation(forIndex index:Int) -> Nucleationtype {
+        switch index {
+        case 0:
+            return ConstantNucleation()
+        case 1:
+            return IncreasingNucleation()
+        default:
+            return AtBeginNucleation()
+        }
+    }
+    
+    func addRecrNucleons(forIndex index:Int, count: Int, onEdges:Bool) {
+        var nucleationType: Nucleationtype = AtBeginNucleation()
+        switch index {
+        case 0:
+            nucleationType = ConstantNucleation()
+        case 1:
+            nucleationType = IncreasingNucleation()
+        default:
+            nucleationType = AtBeginNucleation()
+        }
+        nucleationType.nucleonsCount = count
+        nucleationType.onEdges = onEdges
+        
+        self.points = nucleationType.addNucleons(forPoints: self.points)
     }
     
 }
