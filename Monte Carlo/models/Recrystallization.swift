@@ -29,7 +29,7 @@ class Recrystallization {
         let size = (height: points.count, width: points[0].count)
         points = MCPoint.clearChosen(forMCPoints: points)
         var recrystalized = false
-        while !recrystalized {
+        while MCPoint.chechForNotDrawnElements(forPoints: points) {
             var x = Int(arc4random_uniform(UInt32(size.height)))
             var y = Int(arc4random_uniform(UInt32(size.width)))
             while points[x][y].chosen || points[x][y].selected || points[x][y].recrystalized {
